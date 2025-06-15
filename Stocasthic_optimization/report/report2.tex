@@ -60,6 +60,7 @@
 	\end{itemize}
 	 Finally, were compared the results to evaluate effectiveness and stability of each strategy.
 	
+	\newpage
 	\section{Problems explanation}
 	
 	In this section, are presented the two stochastic optimization problems analyzed in this report: the Newsvendor Problem and the Assemble-to-Order (ATO) Problem. Both are classical examples of two-stage stochastic programs, characterized by decisions that must be made before uncertain demand is revealed. First each problem is introduced and mathematically formulated, then a schematic representations is given to aid understanding. Finally, these problems are solved and analyzed, using different scenario generation and reduction methods.
@@ -68,6 +69,7 @@
 	
 	The newsvendor problem is a classical example in stochastic optimization used to determine the optimal inventory level when demand is uncertain. In our analysis, a vendor must decide the optimal number of newspapers to buy at the beginning of a day, without knowing the exact daily demand, with the goal of maximizing total expected profit.
 	
+%	\newpage
 	\subsubsection{Problem Formulation}
 	
 	Formally, the problem is formulated as follows:
@@ -141,7 +143,7 @@
 		\item $\mathcal{M}$: set of machines.
 			
 	\end{itemize}
-\vspace{0.20cm}	
+%\newpage
 In our specific implementation, we considered the example of the pizza maker, with six hours of work available, two different types of pizzas to be able to produce and the following ingredients on hand: dough, tomato sauce, vegetables. The parameters in the optimization problem are set as follows:  
 		\begin{itemize}
 		\item $C = [1, 1, 3]$.
@@ -152,17 +154,17 @@ In our specific implementation, we considered the example of the pizza maker, wi
 	\end{itemize}
 	
 	\noindent These parameters and constraints form the basis of our computational experiments. 
-	
+	\newpage
 	\section{The class \texttt{ScenarioTree}}
 	
-	The scenario tree is a fundamental tool in stochastic optimization used to represent and manage uncertainty through a structured set of possible future scenarios. In this study, scenario trees are generated using a two-step process involving initial probabilistic models and a specialized Python class called \texttt{ScenarioTree}.
+	The scenario tree is a fundamental tool in stochastic optimization used to represent and manage uncertainty through a structured set of possible future scenarios. In this study, scenario trees are generated using a two-step process involving initial probabilistic models and a specialized Python class called \texttt{ScenarioTree}. This chapter contains the aspects of the above class most relevant to the development of the assignment.
 	
 	\subsection{Initial Probabilistic Model}
 	
-	Initially, scenarios are generated using a stochastic model defined by the class \texttt{EasyStochasticModel}. This class uses a multivariate normal distribution characterized by specified averages and variances; a certain number of scenarios are simulated according to the probability distribution
+	Initially, scenarios are generated using a stochastic model defined by the class \texttt{EasyStochasticModel}. This class uses a multivariate normal distribution characterized by specified averages and variances; a fixed number of scenarios are sampled according to the probability distribution
 	
 	\[
-	\text{Obs} \sim \mathcal{N}(\mu, \Sigma)
+	\text{Obs} \sim \mathcal{N}(\mu, \Sigma),
 	\]
 	
 	which parameters depend on the problem under consideration.	
@@ -172,43 +174,43 @@ In our specific implementation, we considered the example of the pizza maker, wi
 	The \texttt{ScenarioTree} class is responsible for constructing and managing the tree structure. The tree is built iteratively, where each node generates child nodes according to the stochastic model described above. Each node has attributes:
 	
 	\begin{itemize}
-		\item \textbf{obs}: observation values at the node.
-		\item \textbf{prob}: conditional probability of reaching this node from its parent.
+		\item \textbf{obs}: observation values at the current node;
+		\item \textbf{prob}: conditional probability of reaching the current node from its parent;
 		\item \textbf{path\_prob}: cumulative probability from the root node to the current node.
 	\end{itemize}
 	
-	Formally, for each node at stage $t$, child nodes are generated based on:
+	Formally, for each node at stage $t$, child nodes are generated as follows:
 	
 	\[
 	\text{obs}^{(t+1)}_j \sim \text{StochModel}\bigl(\text{obs}^{(t)}\bigr), \quad j=1, \dots, \text{branching\_factor}_t
 	\]
 	
-	The tree generation continues until the predefined depth (planning horizon) is reached, creating a comprehensive structure of all possible demand outcomes and associated probabilities.\\
+	The tree generation continues until the predefined depth (planning horizon) is reached, creating a comprehensive structure of all possible demand outcomes and associated probabilities. In this study, two-stage problems were analyzed and scenario trees of depth one were generated.\\
 	
-	\noindent The resulting scenario tree can be visualized graphically, clearly illustrating the branching structure, node values, and probabilities. This visual aid significantly enhances the interpretation of how uncertainty evolves over time and assists in understanding the implications of different scenario reduction methods presented later in the report.
+\textcolor{red}{MAGARI METTERLO NELLA CAPTION DELL'IMMAGINE:}	
+\textcolor{red}{the resulting scenario tree can be visualized graphically, clearly illustrating the branching structure, node values, and probabilities. This visual aid significantly enhances the interpretation of how uncertainty evolves over time and assists in understanding the implications of different scenario reduction methods presented later in the report.}
 	
-	
+%	\newpage
 	\section{Results with all scenarios}
 	
-	In this section, are reported the results obtained by solving the stochastic optimization problem considering the full set of demand scenarios, without applying any reduction technique. This approach provides a benchmark solution, capturing the entire variability of the underlying random variables. The outcomes presented here will be useful as a reference for evaluating the accuracy and computational efficiency of the scenario reduction methods discussed in the following sections.
+	In this section, are reported the results obtained by solving the stochastic optimization problems considering the full set of demand scenarios, without applying any reduction technique. This approach provides a benchmark solution, capturing the entire variability of the underlying random variables. The outcomes presented here will be useful as a reference for evaluating the accuracy and computational efficiency of the scenario reduction methods discussed in the following sections.
+	
 	
 	\subsection{Newsvendor Problem}
 	
-	The following results summarize the optimization outcomes of the Newsvendor problem when considering all initially generated scenarios. From an initial root, 20 nodes sampled from a multivariate normal of size 50 were generated; each node was generated from the following distribution: 
+	The following results summarize the optimization outcomes of the Newsvendor problem when considering all initially generated scenarios. From an initial fixed root, \textcolor{red}{N} nodes sampled from a multivariate normal of size 50 were generated; each node was generated from the following distribution: 
 	
 	\[
 	\mathcal{N}_{50}(\mu, \Sigma),
 	\]
 	
-	 with $\mu = [25,\dots,25]$ and covariance matrix $\Sigma = 200 * I_{50}$. The code generates 20 samples of size 50 to obtain 20 realizations of the expected value of profit, in order to calculate statistics and draw results and conclusions about the solution of the problem.
-	 The choice to place the number of scenarios equal to 50 was related to the use of a limited Gurobi license, while the choice of $\mu$ and $\Sigma$ parameters was dictated by the possibility of generating data that encapsulated some variability.
-	\noindent Of course, the scenario tree generated through this procedure returns demand values as floating-point numbers. However, since the Newsvendor problem inherently deals with discrete units (we are talking about newspapers), these continuous observations must be rounded to the nearest integer and constrained to be non-negative, ensuring practical and realistic demand scenarios. This rounding and aggregation procedure is implemented in the code using the provided \texttt{aggregate\_discrete\_demands} function, which combines scenarios with identical integer demands, summing their probabilities.\\
+	 with $\mu = [25,\dots,25]$ and covariance matrix $\Sigma = 200 * I_{50}$. The code generates \textcolor{red}{N} samples of size 50 to obtain \textcolor{red}{N} realizations of the expected value of profit, in order to calculate statistics and draw results and conclusions about the solution of the problem.
+	 The choice to place the initial number of scenarios equal to 50 was related to the use of a limited Gurobi license, while the choice of $\mu$ and $\Sigma$ parameters was dictated by the possibility of generating data that encapsulated some variability.
+	\noindent Of course, the scenario tree generated through this procedure returns demand values as floating-point numbers. However, since the Newsvendor problem inherently deals with discrete units (we are talking about newspapers), these continuous observations must be rounded to the nearest integer and constrained to be non-negative, ensuring practical and realistic demand scenarios. This rounding and aggregation procedure is implemented in the code using the provided \texttt{aggregate\_discrete\_demands} function, which combines scenarios with identical integer demands, summing their probabilities.
 	
-	\noindent 
-
-\textcolor{red}{The resulting distinct integer demands and corresponding probabilities are summarized in the table below:}	
+	\noindent In summary, the newsvendor problem is solved \textcolor{red}{N} times for each generated set, which as a result of aggregation will have cardinality less than or equal to 50. This does not conflict with the estimates to be obtained, but rather is representative of the variability of the demand type (the same number of scenarios may not always occur). Table (\ref{tab:newsvendor-general}) shows an example of the output of a sample generated through the scenario tree, whose inputs were aggregated as necessary.\\
 	
-	\begin{table}[htbp]
+	\begin{table}[H]
 		\centering
 		\footnotesize % rende il testo più piccolo
 		\label{tab:newsvendor-general}
@@ -231,47 +233,59 @@ In our specific implementation, we considered the example of the pizza maker, wi
 			17 & 0.02 & & & & \\
 			\hline
 		\end{tabular}
-		\caption{Discrete demand values and aggregated probabilities used in the Newsvendor model.}
+		\caption{An example of discrete demand values and aggregated probabilities used in the Newsvendor model. First, an initial set with cardinality equal to 50 of equiprobabilistic scenarios was generated. Following the aggregation operation, the scenarios are reduced to 31, with probabilities no longer all equal.}
 	\end{table}
 	
 	
-\textcolor{red}{Given these discrete demand scenarios, the optimization model solved through the Newsvendor model implementation yielded the following results:}	
+	%\newpage
+	\noindent The plot in (Figure~\ref{fig:scenariotree-plot}) illustrating an example of scenario tree  with the generated demand values, their probabilities, and the structure of uncertainty before aggregation.
 	
-	\begin{itemize}
-		\item \textbf{Optimal quantity of newspapers to order:} $x^* = 48$;
-		\item \textbf{Maximum expected profit:} 202.00\,€.
-	\end{itemize}
-	\newpage
-	The plot illustrating the scenario tree (Figure~\ref{fig:scenariotree-plot}) visually depicts the generated demand values, their probabilities, and the structure of uncertainty, showcasing clearly the equal probabilities (0.02 each) initially assigned to the generated scenarios before aggregation.
-	
-	\begin{figure}[htbp]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=1\textwidth]{../immagini/scenariNV.png}
-		\caption{Visualization of the generated scenario tree for the Newsvendor problem (50 cases).}
+		\caption{Visualization of an example of scenario tree, used in the analysis of the Newsvendor problem. The tree is composed of 10 equiprobabilistic sets, each of dimension 5 sampled from a multivariate normal distribution of dimension 5 with parameters $\mu = 25, \sigma^{2} = 200$, before rounding and aggregation.}
 		\label{fig:scenariotree-plot}
 	\end{figure}
 	
-	This scenario tree clearly highlights the transformation from continuous demand values (floating points) generated by the stochastic model to the practical integer demands necessary for the Newsvendor optimization. Such transformation, performed via aggregation, ensures consistency with the discrete nature of the problem and simplifies computational processing while maintaining scenario integrity.
+	\textcolor{red}{..Results..}
+	\[
+	\begin{array}{ccc}
+		\hline
+		\text{$\bar{p}_{N}$} & \text{$s_{N}^{2}$} & \text{$t_{S}$}\\
+		\hline
+		1 & 3 & 0.16 \\
+		\hline
+		%	\text{Total} & & 1.00 \\
+		%	\hline
+	\end{array}
+	\]
 	
-	\newpage
+	\label{tab:nv-results-stat}
+	
+	
+%	\newpage
 	\subsection{ATO Problem}
 	
 	This subsection presents the results of the Assemble-to-Order (ATO) optimization model using the complete set of scenarios generated by our stochastic model.\\
 	
-	\noindent In this case 20 sets of observations sampled from a multivariate normal of size 50 were generated for each type of pizza considered in the problem. Specifically, the parameters $\mu_{1} = 90, \Sigma_{1} = 200 * I_{50}$ were considered for the first typology, while the parameters $\mu_{2} = 100, \Sigma_{2} = 2000 * I_{50}$ were considered for the second one. Even in this case this procedure is used to obtain samples of the expected value of profit, to calculate statistics useful for drawing conclusions about the problem. The choice to place the number of scenarios equal to 50 was related to the use of a limited Gurobi license, while the choice of $\mu$ and $\Sigma$ parameters was dictated by the possibility of generating data that encapsulated some variability. The generated demands, initially provided as continuous values from a multivariate normal distribution, must be discretized to integer values due to the practical constraints of real-world production systems. Specifically, demands are rounded to the nearest multiple of ten, ensuring realistic and manageable scenarios. This procedure is implemented by the provided function \texttt{aggregate\_vectorial\_demands}, which aggregates the probabilities of scenarios with identical discretized demands. 
+	\noindent In this case \textcolor{red}{N} sets of observations sampled from a multivariate normal of size 50 were generated for each type of pizza considered in the problem. Specifically, the parameters $\mu_{1} = 90, \Sigma_{1} = 200 * I_{50}$ were considered for the first typology, while the parameters $\mu_{2} = 100, \Sigma_{2} = 2000 * I_{50}$ were considered for the second one. Even in this case this procedure is used to obtain samples of the expected value of profit, to calculate statistics useful for drawing conclusions about the problem. 
+	%\newpage
+	The choice to place the number of scenarios equal to 50 was related to the use of a limited Gurobi license, while the choice of $\mu$ and $\Sigma$ parameters was dictated by the possibility of generating data that encapsulated some variability. The generated demands, initially provided as continuous values from a multivariate normal distribution, must be discretized to integer values due to the practical constraints of real-world production systems. Specifically, demands are rounded to the nearest multiple of ten, ensuring realistic and manageable scenarios. This procedure is implemented by the provided function \texttt{aggregate\_vectorial\_demands}, which aggregates the probabilities of scenarios with identical discretized demands. 
 	
-	\textcolor{red}{The final distinct demands and their probabilities are reported in Table~\ref{tab:ato-general-results}:}
-		
-	\begin{table}[htbp]
+	\noindent In summary, also the ATO problem is solved \textcolor{red}{N} times for each generated set, which as a result of aggregation will have cardinality less than or equal to 50. This does not conflict with the estimates to be obtained, but rather is representative of the variability of the demand type (the same number of scenarios may not always occur). Table (\ref{tab:ato-general-results}) shows an example of the output of a sample generated through the scenario tree, whose inputs were aggregated as necessary.
+	%\newpage
+	
+			
+	\begin{table}[H]
 		\centering
 		\footnotesize
 		\label{tab:ato-general-results}
 		\renewcommand{\arraystretch}{1.1}
 		\begin{tabular}{|@{\hskip 2pt}p{3.2cm}@{\hskip 2pt}|@{\hskip 2pt}p{1cm}@{\hskip 2pt}||@{\hskip 2pt}p{3.2cm}@{\hskip 2pt}|@{\hskip 2pt}p{1cm}@{\hskip 2pt}||@{\hskip 2pt}p{3.2cm}@{\hskip 2pt}|@{\hskip 2pt}p{1cm}@{\hskip 2pt}|}
 			\hline
-			\textbf{Demand (Item 1, 2)} & \textbf{$\pi$} &
-			\textbf{Demand (Item 1, 2)} & \textbf{$\pi$} &
-			\textbf{Demand (Item 1, 2)} & \textbf{$\pi$} \\
+			\textbf{Demand (Item 1, Item 2)} & \textbf{$\pi$} &
+			\textbf{Demand (Item 1, Item 2)} & \textbf{$\pi$} &
+			\textbf{Demand (Item 1, Item 2)} & \textbf{$\pi$} \\
 			\hline
 			\texttt{[60, 190]}  & 0.02 & \texttt{[80, 270]} & 0.02 & \texttt{[100, 100]} & 0.02 \\
 			\texttt{[70, 160]}  & 0.04 & \texttt{[80, 280]} & 0.02 & \texttt{[100, 150]} & 0.02 \\
@@ -289,73 +303,85 @@ In our specific implementation, we considered the example of the pizza maker, wi
 			\multicolumn{5}{|r|}{\textbf{Total}} & \textbf{1.00} \\
 			\hline
 		\end{tabular}
-		\caption{Demand scenarios and probabilities for the ATO problem (without scenario index).}
+		\caption{An example of discrete demand values and aggregated probabilities used in the ATO model. First, an initial set with cardinality equal to 50 of equiprobabilistic scenarios (each scenario is a two-dimensional vector) was generated. Following the aggregation operation, the scenarios are reduced to 36, with probabilities no longer all equal.}
 	\end{table}
 	
-
-	\textcolor{red}{Based on these discrete scenarios, we solved the ATO model, obtaining the optimal quantities of components to produce:}
 	
-	\begin{itemize}
-		\item Component 0 (Dough): \(8.00\);
-		\item Component 1 (Tomato Sauce): \(8.00\);
-		\item Component 2 (Vegetables): \(0.00\).
-	\end{itemize}
-	
-	The optimal solution yields a maximum expected profit of \(32.00\)\,€.
-	
-	\newpage
- The scenario tree visualization (Figure~\ref{fig:ato-scenariotree}) clearly illustrates the initial stochastic process, from continuous to discrete demands. Initially generated continuous values from the stochastic model undergo a rounding process to ensure integer values compatible with the practical nature of the ATO model.
-	
+	%\newpage
+ 	\noindent The plot in Figure~(\ref{fig:ato-scenariotree}) illustrating an example of scenario tree for an ATO problem  with the generated demand values, their probabilities, and the structure of uncertainty before aggregation.
+ 	
 	\begin{figure}[htbp]
 		\centering
 		\includegraphics[width=1\textwidth]{../immagini/scenariATO.png}
-		\caption{Visualization of the generated scenario tree for the ATO problem.}
+		\caption{Visualization of an example of scenario tree, used in the analysis of the ATO problem. The tree is composed of 10 equiprobabilistic sets, each of dimension 4, composed of two scenarios for Item 1 and two scenarios for Item 2. They are sampled respectively from a multivariate normal distribution of dimension 2 with parameters $\mu_{1} = 90, \Sigma_{1} = 200 * I_{2}$, and $\mu_{2} = 100, \Sigma_{2} = 2000 * I_{2}$ before rounding and aggregation.}
 		\label{fig:ato-scenariotree}
 	\end{figure}
 	
-	\noindent This discretization approach provides a realistic representation of demand uncertainty, facilitating the optimization procedure while maintaining the relevance and practicality of the obtained solutions.
+		\textcolor{red}{..Results..}
+	\[
+	\begin{array}{ccc}
+		\hline
+		\text{$\bar{p}_{N}$} & \text{$s_{N}^{2}$} & \text{$t_{S}$}\\
+		\hline
+		1 & 3 & 0.16 \\
+		\hline
+		%	\text{Total} & & 1.00 \\
+		%	\hline
+	\end{array}
+	\]
 	
-	
+	\label{tab:ATO-results-stat}
+		
+	\newpage
 	\section{Results with K-means reduction}
 	
-	In this section, we present the results obtained by applying the K-means clustering method to reduce the number of scenarios and computational complexity generated in both the Newsvendor and Assemble-to-Order (ATO) problems. K-means is a clustering algorithm that partitions the original set of scenarios into \(k\) clusters by minimizing the weighted sum of squared distances between scenario values and their respective cluster centroids. Specifically, each original scenario is assigned to a cluster based on its proximity to the cluster's centroid, taking into account the scenario probabilities as weights. After the clustering process, the centroids become representative of the reduced scenarios, and the probabilities of these scenarios are recalculated by summing the probabilities of all original scenarios within each cluster.
+	In this section, we present the results obtained by applying the K-means clustering method to reduce the number of scenarios and computational complexity generated in both the Newsvendor and Assemble-to-Order (ATO) problems. K-means is a clustering algorithm that partitions the original set of scenarios into \(k\) clusters by minimizing the weighted sum of squared distances between scenario values and their respective cluster centroids. Specifically, each original scenario is assigned to a cluster based on its proximity to the cluster's centroid, taking into account the scenario probabilities as weights. 
+	%\newpage
+	After the clustering process, the centroids become representative of the reduced scenarios, and the probabilities of these scenarios are recalculated by summing the probabilities of all original scenarios within each cluster.
 	
-	\noindent K-means clustering were implemented to reduce the number of original scenarios generated for both problems. The algorithm was applied to each of the 20 samples, to reduce the numerosity of each sample from 50 to $k$, with $k \in [1,15]$. The upper bound of the interval was chosen such that the number of clusters obtained was significantly smaller than the original number of scenarios. Each resulting cluster, in fact, is represented by its centroid, which acts as a reduced scenario, with the new scenario probability obtained by summing the probabilities of the original scenarios assigned to that cluster. Furthermore, for each of the 20 samples, the SSE trend graph was plotted to identify the appropriate number of points (clusters) to represent each initial set, according to the algorithm.\\
+	\noindent K-means clustering were implemented to reduce the number of original scenarios generated for both problems. The algorithm was applied to each of the \textcolor{red}{N} samples, to reduce the numerosity of each sample to $k$, with $k \in [1,15]$. The upper bound of the interval was chosen such that the number of clusters obtained was significantly smaller than the original number of scenarios. Each resulting cluster, in fact, is represented by its centroid, which acts as a reduced scenario, with the new scenario probability obtained by summing the probabilities of the original scenarios assigned to that cluster. Furthermore, for each of the \textcolor{red}{N} samples, the SSE trend graph was plotted to identify the appropriate number of points (clusters) to represent each initial set, according to the algorithm.\\
 	
 	\noindent Below, we present detailed analyses of the performance of this scenario reduction method in the two considered optimization problems.
 	
 	\subsection{Newsvendor Problem}
 	
-	
-	
-	\textcolor{red}{The reduced scenarios obtained are listed in Table~\ref{tab:kmeans-nv-results}:}
+In order to analyze the newsvendor problem with scenario reduction, $\forall k \in [1,15]$ the following were given in the table (\ref{tab:kmeans-nv-results}):
+\begin{itemize}
+	\item $\bar{p}_{\textcolor{red}{N}}:$ estimate of the expected value of profit, obtained by considering the sample mean computed using the \textcolor{red}{N} values from solving the problem for each sample; 
+	\item $s^{2}_{\textcolor{red}{N}}:$ sample variance of the expected values of the profit;
+	\item $t_{R}:$ average computation time for reducing to $k$ scenarios;
+	\item $t_{S}:$ average computation time for solving the Newsvendor problem with $k$ scenarios;
+\end{itemize}~
 	
 	\[
-	\begin{array}{ccc}
+	\begin{array}{ccccc}
 		\hline
-		\text{Cluster} & \text{Demand ($d_{s}$)} & \text{Probability (\(\pi_{s}\))} \\
+		\text{\# Cluster $(k)$} & \text{$\bar{p}_{N}$} & \text{$s_{N}^{2}$} & \text{$t_{R}$} & \text{$t_{S}$}\\
 		\hline
-		1 & 3 & 0.16 \\
-		2 & 18 & 0.40 \\
-		3 & 34 & 0.26 \\
-		4 & 45 & 0.10 \\
-		5 & 57 & 0.08 \\
+		1 & 3 & 0.16 & 0 & 0\\
+		2 & 18 & 0.40 & 0 & 0\\
+		3 & 34 & 0.26 & 0 & 0\\
+		4 & 45 & 0.10 & 0 & 0\\
+		5 & 57 & 0.08 & 0 & 0\\
+		6 & 57 & 0.08 & 0 & 0\\
+		7 & 57 & 0.08 & 0 & 0\\
+		8 & 57 & 0.08 & 0 & 0\\
+		9 & 57 & 0.08 & 0 & 0\\
+		10 & 57 & 0.08 & 0 & 0\\
+		11 & 57 & 0.08 & 0 & 0\\
+	    12 & 57& 0.08 & 0 & 0\\
+		13 & 57 & 0.08 & 0 & 0\\
+		14 & 57 & 0.08 & 0 & 0\\
+		15 & 57 & 0.08 & 0 & 0\\
 		\hline
-		\text{Total} & & 1.00 \\
-		\hline
+	%	\text{Total} & & 1.00 \\
+	%	\hline
 	\end{array}
 	\]
 	\label{tab:kmeans-nv-results}
 	
-	By solving the Newsvendor optimization model with these reduced scenarios, we obtained the following results:
-	
-	\begin{itemize}
-		\item Optimal order quantity: \( x^* = 45 \); newspapers
-		\item Maximum expected profit: \(201.20\)\,€.
-	\end{itemize}
-	
-	These results demonstrate how scenario reduction via K-means effectively simplifies the scenario representation while preserving the essential characteristics needed to achieve reliable decision-making outcomes in stochastic optimization contexts.
-	
+	\noindent \textcolor{red}{DA TENERE SE E' VERO: these results demonstrate how scenario reduction via K-means effectively simplifies the scenario representation while preserving the essential characteristics needed to achieve reliable decision-making outcomes in stochastic optimization contexts.}
+	\newpage
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.8\textwidth]{../immagini/sseNV.png}
@@ -364,38 +390,48 @@ In our specific implementation, we considered the example of the pizza maker, wi
 	\end{figure}
 	
 	
-	\newpage
+	%\newpage
 	\subsection{ATO Problem}
-	
-	In this subsection, we present the results obtained for the Assemble-to-Order (ATO) problem after applying scenario reduction via K-means clustering, to identify representative scenarios in a two-dimensional space (corresponding to the two final products). The final reduced scenarios and their associated probabilities are shown in Table~\ref{tab:kmeans-ato-results}:
+	In this subsection, we present the results obtained for the Assemble-to-Order (ATO) problem after applying scenario reduction via K-means clustering, to identify representative scenarios in a two-dimensional space (corresponding to the two final products). In order to analyze the newsvendor problem with scenario reduction, $\forall k \in [1,15]$ the following were given in the table (\ref{tab:kmeans-ato-results}):
+	\begin{itemize}
+		\item $\bar{p}_{\textcolor{red}{N}}:$ estimate of the expected value of profit, obtained by considering the sample mean computed using the \textcolor{red}{N} values from solving the problem for each sample; 
+		\item $s^{2}_{\textcolor{red}{N}}:$ sample variance of the expected values of the profit;
+		\item $t_{R}:$ average computation time for reducing to $k$ scenarios;
+		\item $t_{S}:$ average computation time for solving the Newsvendor problem with $k$ scenarios;
+	\end{itemize}~
 	
 	\[
-	\begin{array}{ccc}
+	\begin{array}{ccccc}
 		\hline
-		\text{Scenario} & \text{Demand [Item 1, Item 2]} & \text{Probability (\(\pi\))} \\\\
+		\text{\# Cluster $(k)$} & \text{$\bar{p}_{N}$} & \text{$s_{N}^{2}$} & \text{$t_{R}$} & \text{$t_{S}$}\\
 		\hline
-		1 & [90, 130] & 0.16 \\\\
-		2 & [90, 170] & 0.30 \\\\
-		3 & [90, 220] & 0.30 \\\\
-		4 & [90, 260] & 0.18 \\\\
-		5 & [100, 300] & 0.06 \\\\
+		1 & 3 & 0.16 & 0 & 0\\
+		2 & 18 & 0.40 & 0 & 0\\
+		3 & 34 & 0.26 & 0 & 0\\
+		4 & 45 & 0.10 & 0 & 0\\
+		5 & 57 & 0.08 & 0 & 0\\
+		6 & 57 & 0.08 & 0 & 0\\
+		7 & 57 & 0.08 & 0 & 0\\
+		8 & 57 & 0.08 & 0 & 0\\
+		9 & 57 & 0.08 & 0 & 0\\
+		10 & 57 & 0.08 & 0 & 0\\
+		11 & 57 & 0.08 & 0 & 0\\
+		12 & 57& 0.08 & 0 & 0\\
+		13 & 57 & 0.08 & 0 & 0\\
+		14 & 57 & 0.08 & 0 & 0\\
+		15 & 57 & 0.08 & 0 & 0\\
 		\hline
-		\text{Total} & & 1.00 \\\\
-		\hline
+		%	\text{Total} & & 1.00 \\
+		%	\hline
 	\end{array}
 	\]
 	\label{tab:kmeans-ato-results}
 	
-	After solving the ATO model using these reduced scenarios, we obtained the following optimal component production plan:
 	
-	\begin{itemize}
-		\item Component 0 (Dough): \(8.00\);
-		\item Component 1 (Tomato Sauce): \(8.00\);
-		\item Component 2 (Vegetables): \(0.00\).
-	\end{itemize}
 	
-	The resulting maximum expected profit is \(32.00\)\,€, exactly matching the value obtained with the full set of scenarios. This indicates that the scenario reduction via K-means preserved the essential characteristics of the demand distribution, allowing us to significantly reduce the problem size while maintaining optimality in the solution.
+	\textcolor{red}{DA TENERE SE VERO: the scenario reduction via K-means preserved the essential characteristics of the demand distribution, allowing us to significantly reduce the problem size while maintaining optimality in the solution.}	
 	
+	\newpage
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.8\textwidth]{../immagini/sseATO.png}
@@ -403,7 +439,7 @@ In our specific implementation, we considered the example of the pizza maker, wi
 		\label{fig:sse-ato}
 	\end{figure}
 	
-	
+	\newpage
 	\section{Results with Wasserstein distance--based reduction}
 	
 	In this section, we present the scenario reduction method based on the Wasserstein distance, as applied to both the Newsvendor and Assemble-to-Order (ATO) problems. The Wasserstein distance, also known as the Earth Mover's Distance, is a mathematical metric used to quantify the dissimilarity between two probability distributions on a given metric space. In the context of scenario reduction, it measures the minimum "cost" required to transform the original probability distribution of scenarios into a reduced one, where the "cost" is defined as the amount of probability mass to move times the distance it is moved.
@@ -438,136 +474,138 @@ In our specific implementation, we considered the example of the pizza maker, wi
 	
 	This model ensures that exactly $k$ scenarios are selected ($\sum_j z_j = k$), the reduced probabilities sum to 1, and the transportation of probability mass is minimized according to the cost matrix $C$. The same approach is extended to the multidimensional case (for ATO) using the appropriate vector norms for the cost computation.
 	
-	The Wasserstein reduction technique, by construction, selects scenarios that preserve the probabilistic structure of the original distribution as faithfully as possible, yielding a reduced scenario set that guarantees a minimal loss of information with respect to the original distribution. In the following subsections, we detail the results obtained by applying this method to our stochastic optimization problems.
+	\newpage
+	The algorithm was applied to each of the \textcolor{red}{N} samples, to reduce the numerosity of each sample to $k$, with $k \in [1,15]$. The upper bound of the interval was chosen such that the number of clusters obtained was significantly smaller than the original number of scenarios. The Wasserstein reduction technique, by construction, selects scenarios that preserve the probabilistic structure of the original distribution as faithfully as possible, yielding a reduced scenario set that guarantees a minimal loss of information with respect to the original distribution. In the following subsections, we detail the results obtained by applying this method to our stochastic optimization problems. 
 	
 	\subsection{Newsvendor Problem}
 	
-	For the Newsvendor problem, we applied the scenario reduction method based on the Wasserstein distance, which is designed to preserve the probabilistic structure of the original set of scenarios as closely as possible. The reduction is achieved by solving a mixed-integer linear program that selects $k = 5$ representative scenarios and reassigns the original probabilities to minimize the Wasserstein (Earth Mover's) distance between the original and reduced distributions.
-	
-	The resulting reduced scenarios and their associated probabilities are summarized in Table~\ref{tab:wass-nv-results}:
+	For the Newsvendor problem, we applied the scenario reduction method based on the Wasserstein distance, which is designed to preserve the probabilistic structure of the original set of scenarios as closely as possible. The resulting reduced problems are summarized in Table~\ref{tab:wass-nv-results}, where $\forall k \in [1,15]$ the following were given:
+	\begin{itemize}
+		\item $\bar{p}_{\textcolor{red}{N}}:$ estimate of the expected value of profit, obtained by considering the sample mean computed using the \textcolor{red}{N} values from solving the problem for each sample; 
+		\item $s^{2}_{\textcolor{red}{N}}:$ sample variance of the expected values of the profit;
+		\item $t_{R}:$ average computation time for reducing to $k$ scenarios;
+		\item $t_{S}:$ average computation time for solving the Newsvendor problem with $k$ scenarios;
+	\end{itemize}~
 	
 	\[
-	\begin{array}{ccc}
+	\begin{array}{ccccc}
 		\hline
-		\text{Scenario} & \text{Demand (d)} & \text{Probability (\(\pi\))} \\\\
+		\text{\# Cluster $(k)$} & \text{$\bar{p}_{N}$} & \text{$s_{N}^{2}$} & \text{$t_{R}$} & \text{$t_{S}$}\\
 		\hline
-		1 & 1 & 0.14 \\\\
-		2 & 16 & 0.32 \\\\
-		3 & 29 & 0.26 \\\\
-		4 & 42 & 0.20 \\\\
-		5 & 57 & 0.08 \\\\
+		1 & 3 & 0.16 & 0 & 0\\
+		2 & 18 & 0.40 & 0 & 0\\
+		3 & 34 & 0.26 & 0 & 0\\
+		4 & 45 & 0.10 & 0 & 0\\
+		5 & 57 & 0.08 & 0 & 0\\
+		6 & 57 & 0.08 & 0 & 0\\
+		7 & 57 & 0.08 & 0 & 0\\
+		8 & 57 & 0.08 & 0 & 0\\
+		9 & 57 & 0.08 & 0 & 0\\
+		10 & 57 & 0.08 & 0 & 0\\
+		11 & 57 & 0.08 & 0 & 0\\
+		12 & 57& 0.08 & 0 & 0\\
+		13 & 57 & 0.08 & 0 & 0\\
+		14 & 57 & 0.08 & 0 & 0\\
+		15 & 57 & 0.08 & 0 & 0\\
 		\hline
-		\text{Total} & & 1.00 \\\\
-		\hline
+		%	\text{Total} & & 1.00 \\
+		%	\hline
 	\end{array}
 	\]
+	
 	\label{tab:wass-nv-results}
 	
-	By solving the Newsvendor optimization problem with this reduced scenario set, we obtained the following results:
-	\begin{itemize}
-		\item Optimal order quantity: $x^* = 42$ newspapers
-		\item Maximum expected profit: $203.60$\,€
-	\end{itemize}
 	
-	These results demonstrate the effectiveness of Wasserstein reduction: although the number of scenarios is significantly decreased, the essential statistical features of the original demand distribution are maintained. The reduced scenario set still allows the optimization model to find a solution that is both robust and close to the original optimal profit.
-	\newpage
+	\textcolor{red}{DA TENERE SE E' VERO: These results demonstrate the effectiveness of Wasserstein reduction: although the number of scenarios is significantly decreased, the essential statistical features of the original demand distribution are maintained. The reduced scenario set still allows the optimization model to find a solution that is both robust and close to the original optimal profit.}	\newpage
+%	\newpage
 	\subsection{ATO Problem}
 	
-	In this subsection, we report the results for the Assemble-to-Order (ATO) problem using scenario reduction via the Wasserstein distance. The original multidimensional demand scenarios were reduced to $k=5$ representative scenarios by solving the exact MILP formulation that minimizes the Wasserstein distance, ensuring that the probabilistic and structural characteristics of the original distribution are preserved as faithfully as possible.
+	In this subsection, we report the results for the Assemble-to-Order (ATO) problem using scenario reduction via the Wasserstein distance. The original multidimensional demand scenarios were reduced to $k \in [1,15]$ representative scenarios by solving the exact MILP formulation that minimizes the Wasserstein distance, ensuring that the probabilistic and structural characteristics of the original distribution are preserved as faithfully as possible.
 	
-	The selected scenarios and their associated probabilities are summarized in Table~\ref{tab:wass-ato-results}:
+	The resulting reduced problems are summarized in Table\ref{tab:wass-ato-results}, where $\forall k \in [1,15]$ the following were given:
+	\begin{itemize}
+		\item $\bar{p}_{\textcolor{red}{N}}:$ estimate of the expected value of profit, obtained by considering the sample mean computed using the \textcolor{red}{N} values from solving the problem for each sample; 
+		\item $s^{2}_{\textcolor{red}{N}}:$ sample variance of the expected values of the profit;
+		\item $t_{R}:$ average computation time for reducing to $k$ scenarios;
+		\item $t_{S}:$ average computation time for solving the Newsvendor problem with $k$ scenarios;
+	\end{itemize}~
 	
 	\[
-	\begin{array}{ccc}
+	\begin{array}{ccccc}
 		\hline
-		\text{Scenario} & \text{Demand [Item 1, Item 2]} & \text{Probability (\(\pi\))} \\\\
+		\text{\# Cluster $(k)$} & \text{$\bar{p}_{N}$} & \text{$s_{N}^{2}$} & \text{$t_{R}$} & \text{$t_{S}$}\\
 		\hline
-		1 & [90, 160] & 0.30 \\\\
-		2 & [90, 200] & 0.26 \\\\
-		3 & [90, 240] & 0.24 \\\\
-		4 & [90, 290] & 0.14 \\\\
-		5 & [100, 100] & 0.06 \\\\
+		1 & 3 & 0.16 & 0 & 0\\
+		2 & 18 & 0.40 & 0 & 0\\
+		3 & 34 & 0.26 & 0 & 0\\
+		4 & 45 & 0.10 & 0 & 0\\
+		5 & 57 & 0.08 & 0 & 0\\
+		6 & 57 & 0.08 & 0 & 0\\
+		7 & 57 & 0.08 & 0 & 0\\
+		8 & 57 & 0.08 & 0 & 0\\
+		9 & 57 & 0.08 & 0 & 0\\
+		10 & 57 & 0.08 & 0 & 0\\
+		11 & 57 & 0.08 & 0 & 0\\
+		12 & 57& 0.08 & 0 & 0\\
+		13 & 57 & 0.08 & 0 & 0\\
+		14 & 57 & 0.08 & 0 & 0\\
+		15 & 57 & 0.08 & 0 & 0\\
 		\hline
-		\text{Total} & & 1.00 \\\\
-		\hline
+		%	\text{Total} & & 1.00 \\
+		%	\hline
 	\end{array}
 	\]
+	
 	\label{tab:wass-ato-results}
 	
-	Solving the ATO optimization problem with these reduced scenarios, we obtain the following optimal production plan:
-	\begin{itemize}
-		\item Component 0 (Dough): $8.00$
-		\item Component 1 (Tomato Sauce): $8.00$
-		\item Component 2 (Vegetables): $0.00$
-	\end{itemize}
 	
-	The resulting maximum expected profit is $32.00$\,€, identical to the value obtained with the full set and the K-means reduction. This outcome highlights the robustness and accuracy of the Wasserstein-based scenario reduction, which manages to preserve the key features of the stochastic demand while significantly reducing computational complexity.
-	
+	 \textcolor{red}{DA TENERE SE CORRETTO: This outcome highlights the robustness and accuracy of the Wasserstein-based scenario reduction, which manages to preserve the key features of the stochastic demand while significantly reducing computational complexity.
+	 }
+	 
+	 \newpage	
 	\section{Efficiency}
 	
-	In this section, we compare the computational efficiency of the different scenario reduction methods applied to both the Newsvendor and ATO problems. We report and discuss the execution times of each algorithm, summarizing the results through graphical visualizations.
+	In this section, we compare the computational efficiency of the different scenario reduction methods applied to both the Newsvendor and ATO problems. We report and discuss the execution times of each algorithm, summarizing the results through graphical visualizations.\\
 	
-	\subsection{Newsvendor Problem}
+	\noindent Figure~\ref{fig:timing} shows the total computational times required for the two problems, including both scenario reduction (with K-means and Wasserstein) and the subsequent optimization with the reduced scenarios.
 	
-	Figure~\ref{fig:timing-nv} shows the computational times required for the different phases of the Newsvendor problem, including both scenario reduction (K-means and Wasserstein) and the subsequent optimization with the reduced scenarios.
-	
-	\begin{figure}[htbp]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=1\textwidth]{../immagini/tempiNV.png}
-		\caption{Comparison of computation times for scenario reduction and optimization (Newsvendor problem).}
-		\label{fig:timing-nv}
+		\caption{Total execution times for Newsvendor problem and ATO problem, for each value of $k \in [1,15]$. \textcolor{red}{$\rightarrow$ inserisci figura giusta}}
+		\label{fig:timing}
 	\end{figure}
 	
-	\begin{table}[htbp]
-		\centering
-		\caption{Execution times for scenario reduction and solution phases (Newsvendor problem).}
-		\begin{tabular}{lc}
-			\hline
-			\textbf{Operation} & \textbf{Time [s]} \\
-			\hline
-			Full\_Solution         & 0.0058 \\
-			KMeans\_Reduction      & 0.1160 \\
-			KMeans\_Solution       & 0.0007 \\
-			Wasserstein\_Reduction & 0.1318 \\
-			Wasserstein\_Solution  & 0.0006 \\
-			\hline
-		\end{tabular}
-		\label{tab:timing-nv}
-	\end{table}
+\begin{table}[htbp]
+	\centering
+		\begin{tabular}{|l|l|c|}
+		\hline
+		\textbf{Problem} & \textbf{Method} & \textbf{Total Time [s]} \\
+		\hline
+		Newsvendor & Full           & 0.0058 \\
+		Newsvendor & K-means        & 0.1167 \\
+		Newsvendor & Wasserstein    & 0.1324 \\
+		\hline
+		ATO        & Full           & 0.0059 \\
+		ATO        & K-means        & 0.1207 \\
+		ATO        & Wasserstein    & 0.1984 \\
+		\hline
+	\end{tabular}
+	\label{tab:summary-times}
+		\caption{Comparison between total execution times for Newsvendor problem and ATO problem with full scenarios, reduced scenarios via Kmeans and reduced scenarios via Wasserstein-based heuristic. \textcolor{red}{$\rightarrow$ inserisci valori giusti}.}
 	
-	
-	
-	From the chart, we observe that the time required to solve the full problem without reduction (\texttt{Full\_Solution}) is significantly lower than the time spent in the reduction phases (\texttt{KMeans\_Reduction} and \texttt{Wasserstein\_Reduction}), which dominate the total computational cost. Conversely, the actual optimization on the reduced scenario sets (\texttt{KMeans\_Solution} and \texttt{Wasserstein\_Solution}) is almost negligible in terms of time. 
-	
-	This result highlights that, for the Newsvendor problem with a moderate number of scenarios, the bottleneck is the reduction procedure itself—especially when using methods such as K-means or Wasserstein MILP—while the optimization stage becomes extremely fast once the scenario set is reduced. Therefore, the choice of the reduction algorithm and its implementation has a direct impact on the overall computational efficiency of the workflow.
+\end{table}
+			
 	\newpage
-	\subsection{ATO Problem}
 	
-	Figure~\ref{fig:timing-ato} reports the computational times for the different phases of the Assemble-to-Order (ATO) problem, including both the scenario reduction steps (K-means and Wasserstein) and the subsequent optimization using the reduced scenarios.
+	\section{Discussion}
 	
-	\begin{figure}[htbp]
-		\centering
-		\includegraphics[width=1\textwidth]{../immagini/tempiATO.png}
-		\caption{Comparison of computation times for scenario reduction and optimization (ATO problem).}
-		\label{fig:timing-ato}
-	\end{figure}
+	\textcolor{red}{Modifica in base ai risultati.}\\
 	
-	\begin{table}[htbp]
-		\centering
-		\caption{Execution times for scenario reduction and solution phases (ATO problem).}
-		\begin{tabular}{lc}
-			\hline
-			\textbf{Operation} & \textbf{Time [s]} \\
-			\hline
-			Full\_Solution         & 0.0059 \\
-			KMeans\_Reduction      & 0.1195 \\
-			KMeans\_Solution       & 0.0012 \\
-			Wasserstein\_Reduction & 0.1975 \\
-			Wasserstein\_Solution  & 0.0009 \\
-			\hline
-		\end{tabular}
-		\label{tab:timing-ato}
-	\end{table}
+\noindent From the chart, we observe that the time required to solve the full problem without reduction (\texttt{Full\_Solution}) is significantly lower than the time spent in the reduction phases (\texttt{KMeans\_Reduction} and \texttt{Wasserstein\_Reduction}), which dominate the total computational cost. Conversely, the actual optimization on the reduced scenario sets (\texttt{KMeans\_Solution} and \texttt{Wasserstein\_Solution}) is almost negligible in terms of time. 
+	
+	This result highlights that, for the Newsvendor problem with a moderate number of scenarios, the bottleneck is the reduction procedure itself—especially when using methods such as K-means or Wasserstein MILP—while the optimization stage becomes extremely fast once the scenario set is reduced. Therefore, the choice of the reduction algorithm and its implementation has a direct impact on the overall computational efficiency of the workflow. \\
+	
 	
 	
 	As with the Newsvendor case, the time required for the scenario reduction phases (\texttt{KMeans\_Reduction} and \texttt{Wasserstein\_Reduction}) is substantially higher than the time needed to solve the full problem without reduction (\texttt{Full\_Solution}) or to solve the optimization problem on the reduced scenario sets (\texttt{KMeans\_Solution} and \texttt{Wasserstein\_Solution}), which are both negligible in terms of computational cost.
@@ -576,7 +614,6 @@ In our specific implementation, we considered the example of the pizza maker, wi
 	
 	This analysis confirms that, for moderate instance sizes, the major computational effort is concentrated in the scenario reduction phase—especially for methods based on mathematical programming—while the actual optimization benefits greatly from working on a smaller scenario set. Thus, efficiency considerations must take into account not only the quality of the reduced scenarios, but also the time required for the reduction procedure itself.
 	
-	\section{Discussion}
 	
 	The analyses presented in this report highlight important aspects regarding both the quality of solutions and the computational efficiency of different scenario reduction techniques when applied to the Newsvendor and Assemble-to-Order (ATO) problems.\\
 	
@@ -586,43 +623,25 @@ In our specific implementation, we considered the example of the pizza maker, wi
 	
 	\noindent Comparing the two problems, the trends remain similar: the scenario reduction phase dominates the total computational time--especially as the dimensionality of the problem increases--but both reduction methods succeed in dramatically simplifying the scenario set without any meaningful loss in solution quality. In summary, the choice of the reduction technique may be guided by the available computational resources and the problem's dimensionality: K-means offers faster execution and satisfactory accuracy for most practical purposes, while the Wasserstein approach is preferable when maximum fidelity to the original probability distribution is required, at the expense of increased computation time.
 	
-	\begin{table}[htbp]
-		\centering
-		\caption{Summary of optimal solutions and objective values for both Newsvendor and ATO problems.}
-		\begin{tabular}{|l|l|c|c|c|}
-			\hline
-			\textbf{Problem} & \textbf{Method} & \textbf{\# Scenarios} & \textbf{Optimal Variable} & \textbf{Objective Value (€)} \\
-			\hline
-			Newsvendor & Full           & 31 & $x^* = 48$          & 202.00 \\
-			Newsvendor & K-means        & 5  & $x^* = 45$          & 201.20 \\
-			Newsvendor & Wasserstein    & 5  & $x^* = 42$          & 203.60 \\
-			\hline
-			ATO        & Full           & 36 & $x^* = [8,\,8,\,0]$ & 32.00  \\
-			ATO        & K-means        & 5  & $x^* = [8,\,8,\,0]$ & 32.00  \\
-			ATO        & Wasserstein    & 5  & $x^* = [8,\,8,\,0]$ & 32.00  \\
-			\hline
-		\end{tabular}
-		\label{tab:summary-results}
-	\end{table}
+%	\begin{table}[htbp]
+%		\centering
+%		\caption{Summary of optimal solutions and objective values for both Newsvendor and ATO problems.}
+%		\begin{tabular}{|l|l|c|c|c|}
+%			\hline
+%			\textbf{Problem} & \textbf{Method} & \textbf{\# Scenarios} & \textbf{Optimal Variable} & \textbf{Objective Value (€)} \\
+%			\hline
+%			Newsvendor & Full           & 31 & $x^* = 48$          & 202.00 \\
+%			Newsvendor & K-means        & 5  & $x^* = 45$          & 201.20 \\
+%			Newsvendor & Wasserstein    & 5  & $x^* = 42$          & 203.60 \\
+%			\hline
+%			ATO        & Full           & 36 & $x^* = [8,\,8,\,0]$ & 32.00  \\
+%			ATO        & K-means        & 5  & $x^* = [8,\,8,\,0]$ & 32.00  \\
+%			ATO        & Wasserstein    & 5  & $x^* = [8,\,8,\,0]$ & 32.00  \\
+%			\hline
+%		\end{tabular}
+%		\label{tab:summary-results}
+%	\end{table}
 	
-	\begin{table}[htbp]
-		\centering
-		\caption{Total computation times (reduction + solution) for each method and problem.}
-		\begin{tabular}{|l|l|c|}
-			\hline
-			\textbf{Problem} & \textbf{Method} & \textbf{Total Time [s]} \\
-			\hline
-			Newsvendor & Full           & 0.0058 \\
-			Newsvendor & K-means        & 0.1167 \\
-			Newsvendor & Wasserstein    & 0.1324 \\
-			\hline
-			ATO        & Full           & 0.0059 \\
-			ATO        & K-means        & 0.1207 \\
-			ATO        & Wasserstein    & 0.1984 \\
-			\hline
-		\end{tabular}
-		\label{tab:summary-times}
-	\end{table}
-	
+		
 	
 \end{document}
