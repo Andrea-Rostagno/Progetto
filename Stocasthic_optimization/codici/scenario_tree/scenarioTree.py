@@ -547,12 +547,9 @@ class ScenarioTree(nx.DiGraph):
         Returns:
             (demands_agg, probs_agg): liste ordinate con vettori distinti e probabilità sommate
         """
-        def round_to_10(x):
-            return int(round(x / 10.0) * 10)
-
         demand_prob = defaultdict(float)
-        for d_vec, p in zip(demand_vectors, probs):
-            rounded_vec = tuple(round_to_10(v) for v in d_vec)
+        for d_vec, p in zip(demand_vectors, probs): 
+            rounded_vec = tuple(d_vec)
             demand_prob[rounded_vec] += p
 
         # Ordina per valore dei vettori

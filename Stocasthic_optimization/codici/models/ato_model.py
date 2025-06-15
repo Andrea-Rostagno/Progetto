@@ -29,10 +29,10 @@ def solve_ato(demands, probabilities, C, P, T, L, G, verbose=False):
         model.setParam("OutputFlag", 0)
 
     # Variabili di primo stadio
-    x = model.addVars(I, vtype=GRB.CONTINUOUS, name="x")
+    x = model.addVars(I, vtype=GRB.INTEGER, name="x")
 
     # Variabili di secondo stadio
-    y = model.addVars(n_scenarios, J, vtype=GRB.CONTINUOUS, name="y")
+    y = model.addVars(n_scenarios, J, vtype=GRB.INTEGER, name="y")
 
     # Obiettivo
     expected_revenue = gp.quicksum(probabilities[s] * gp.quicksum(P[j] * y[s, j] for j in range(J)) for s in range(n_scenarios))
