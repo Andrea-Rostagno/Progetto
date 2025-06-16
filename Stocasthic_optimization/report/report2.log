@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.5.29)  16 JUN 2025 13:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.5.29)  16 JUN 2025 14:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -993,20 +993,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 617--618
  []
 
 
-Overfull \hbox (48.26466pt too wide) in paragraph at lines 619--620
-\T1/lmr/m/n/12 miza-tion on the re-duced sce-nario sets (\T1/lmtt/m/n/12 KMeans
-_Solution \T1/lmr/m/n/12 and \T1/lmtt/m/n/12 Wasserstein_Solution\T1/lmr/m/n/12
- )
- []
-
-
-Overfull \hbox (25.79878pt too wide) in paragraph at lines 621--622
-\T1/lmr/m/n/12 self^^Vespecially when us-ing meth-ods such as K-means or Wasser
--stein MILP^^Vwhile
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 621--622
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 623--624
 
  []
 
@@ -1017,19 +1009,9 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.630 	
+l.624 	
        ]
-Underfull \hbox (badness 10000) in paragraph at lines 632--633
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 634--635
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 636--637
+Underfull \hbox (badness 10000) in paragraph at lines 625--626
 
  []
 
@@ -1050,7 +1032,7 @@ Here is how much of TeX's memory you used:
  45091 multiletter control sequences out of 15000+600000
  631853 words of font info for 93 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 84i,11n,87p,980b,571s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,11n,87p,1305b,571s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dis
 t/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm
 /lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share
@@ -1062,7 +1044,7 @@ pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-di
 st/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/l
 m/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/shar
 e/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on report2.pdf (26 pages, 543649 bytes).
+Output written on report2.pdf (26 pages, 543213 bytes).
 PDF statistics:
  355 PDF objects out of 1000 (max. 8388607)
  282 compressed objects within 3 object streams
