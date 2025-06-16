@@ -247,12 +247,17 @@
 	\end{figure}
 	
 	\noindent
-	The following tables and statistical summaries present the main results obtained from the repeated solution of the Newsvendor problem using all generated and aggregated demand scenarios. These include the key descriptive statistics for the expected profit and the confidence intervals estimated over multiple simulation sets.
+	The following tables and statistical summaries present the main results obtained from the repeated solution of the Newsvendor problem using all generated and aggregated demand scenarios. These include the key descriptive statistics for the expected profit and the confidence intervals estimated over multiple simulation sets, i.e. :
+	\begin{itemize}
+		\item $\bar{p}_{N}:$ estimation of the expected value of the profit with $95\%$ confidence interval, obtained by considering the sample mean computed using the $N$ values from solving the problem for each sample; 
+		\item $s^{2}_{N}:$ sample variance of the expected value of the profit,
+	\end{itemize}
 	
-	\begin{table}[htbp]
+	\noindent where $N = 74.$
+	
+	\begin{table}[H]
 		\centering
-		\caption{Descriptive statistics of expected profit for Newsvendor simulation sets.}
-		\begin{tabular}{|c|c|c|}
+			\begin{tabular}{|c|c|c|}
 			\hline
 			\textbf{Number of Sets} & \textbf{Mean Profit (€)} & \textbf{Std. Deviation (€)} \\
 			\hline
@@ -260,12 +265,13 @@
 			74 & 204.12 & 17.30 \\
 			\hline
 		\end{tabular}
+		\caption{Descriptive statistics of expected profit for Newsvendor simulation sets.}
+		
 		\label{tab:profit-descriptive}
 	\end{table}
 	
-	\begin{table}[htbp]
+	\begin{table}[H]
 		\centering
-		\caption{Confidence intervals for expected profit (Newsvendor).}
 		\begin{tabular}{|c|c|c|}
 			\hline
 			\textbf{Number of Sets} & \textbf{95\% Confidence Interval (€)} & \textbf{Interval Width (€)} \\
@@ -274,6 +280,8 @@
 			74 & (200.18,\;208.07) & 7.88 \\
 			\hline
 		\end{tabular}
+		\caption{Confidence intervals for expected profit for Newsvendor problem considering all samples generated.}
+		
 		\label{tab:profit-ci}
 	\end{table}
 	
@@ -332,7 +340,7 @@
 	\newpage
 	\noindent The plot in Figure~(\ref{fig:ato-scenariotree}) illustrating an example of scenario tree for an ATO problem  with the generated demand values, their probabilities, and the structure of uncertainty before aggregation.
 	
-	\begin{figure}[htbp]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=1\textwidth]{../immagini/scenariATO.png}
 		\caption{Visualization of an example of scenario tree, used in the analysis of the ATO problem. The tree is composed of 10 equiprobabilistic sets each of dimension 4, composed of two pairs [Item 1,Item 2], each sampled from a multivariate normal distribution of dimension 2 with parameters $\mu = [10,16], \Sigma = \begin{pmatrix} 70 &0  \\ 0 &90  \end{pmatrix}$ before rounding and aggregation.}
@@ -340,8 +348,14 @@
 	\end{figure}
 	
 	\noindent
-	Table~\ref{tab:ATO-results-stat} summarizes the main statistical indicators for the expected profit obtained from multiple independent simulation sets of the ATO problem. The table shows the sample mean, standard deviation, and the 95\% confidence interval for the expected profit, comparing the results with different numbers of sets.
+	Table (\ref{tab:ATO-results-stat}) summarizes the main statistical indicators for the expected profit obtained from multiple independent simulation sets of the ATO problem, i.e.: 
+	\begin{itemize}
+		\item $\bar{p}_{N}:$ estimation of the expected value of the profit and $95\%$ confidence interval, obtained by considering the sample mean computed using the $N$ values from solving the problem for each sample; 
+		\item $s^{2}_{N}:$ sample variance of the expected value of the profit,
+	\end{itemize}
 	
+	\noindent where $N = 85, 20.$
+
 	\[
 	\begin{array}{cccc}
 		\hline
@@ -375,31 +389,34 @@
 		\item $t_{R}:$ average computation time for reducing to $k$ scenarios;
 		\item $t_{S}:$ average computation time for solving the Newsvendor problem with $k$ scenarios;
 	\end{itemize}~
-	
-	\[
-	\begin{array}{ccccc}
-		\hline
-		\text{\# Cluster $(k)$} & \text{$\bar{p}_{N}$} & \text{$s_{N}$} & \text{$t_{R}$ [s]} & \text{$t_{S}$ [s]} \\
-		\hline
-		1 & 227.92 & 17.45 & 0.0046 & 0.0004 \\
-		2 & 214.71 & 18.27 & 0.0032 & 0.0005 \\
-		3 & 210.94 & 17.77 & 0.0031 & 0.0004 \\
-		4 & 207.22 & 17.30 & 0.0034 & 0.0005 \\
-		5 & 206.25 & 17.52 & 0.0035 & 0.0006 \\
-		6 & 205.94 & 17.61 & 0.0034 & 0.0005 \\
-		7 & 205.45 & 17.23 & 0.0036 & 0.0006 \\
-		8 & 204.84 & 17.41 & 0.0036 & 0.0006 \\
-		9 & 204.73 & 17.37 & 0.0036 & 0.0006 \\
-		10 & 204.56 & 17.47 & 0.0038 & 0.0007 \\
-		11 & 204.40 & 17.51 & 0.0039 & 0.0007 \\
-		12 & 204.49 & 17.49 & 0.0041 & 0.0008 \\
-		13 & 204.39 & 17.48 & 0.0041 & 0.0008 \\
-		14 & 204.32 & 17.52 & 0.0041 & 0.0009 \\
-		15 & 204.23 & 17.52 & 0.0043 & 0.0010 \\
-		\hline
-	\end{array}
-	\]
-	
+	\begin{table}[H]
+		\[
+		\begin{array}{ccccc}
+			\hline
+			\text{\# Cluster $(k)$} & \text{$\bar{p}_{N}$} & \text{$s_{N}$} & \text{$t_{R}$ [s]} & \text{$t_{S}$ [s]} \\
+			\hline
+			1 & 227.92 & 17.45 & 0.0046 & 0.0004 \\
+			2 & 214.71 & 18.27 & 0.0032 & 0.0005 \\
+			3 & 210.94 & 17.77 & 0.0031 & 0.0004 \\
+			4 & 207.22 & 17.30 & 0.0034 & 0.0005 \\
+			5 & 206.25 & 17.52 & 0.0035 & 0.0006 \\
+			6 & 205.94 & 17.61 & 0.0034 & 0.0005 \\
+			7 & 205.45 & 17.23 & 0.0036 & 0.0006 \\
+			8 & 204.84 & 17.41 & 0.0036 & 0.0006 \\
+			9 & 204.73 & 17.37 & 0.0036 & 0.0006 \\
+			10 & 204.56 & 17.47 & 0.0038 & 0.0007 \\
+			11 & 204.40 & 17.51 & 0.0039 & 0.0007 \\
+			12 & 204.49 & 17.49 & 0.0041 & 0.0008 \\
+			13 & 204.39 & 17.48 & 0.0041 & 0.0008 \\
+			14 & 204.32 & 17.52 & 0.0041 & 0.0009 \\
+			15 & 204.23 & 17.52 & 0.0043 & 0.0010 \\
+			\hline
+		\end{array}
+		\]
+		\label{tab:kmeans-nv-results}
+		\caption{Main results obtained from the repeated solution of the Newsvendor problem using $k$ scenarios (after reduction) with $k \in [1,15]$.}
+	\end{table}
+		
 	
 	\noindent These results demonstrate how scenario reduction via K-means effectively simplifies the scenario representation while preserving the essential characteristics needed to achieve reliable decision-making outcomes in stochastic optimization contexts.\\
 	
@@ -435,6 +452,8 @@
 		\item $t_{S}:$ average computation time for solving the Newsvendor problem with $k$ scenarios;
 	\end{itemize}~
 	
+	\begin{table}
+		
 	\[
 	\begin{array}{ccccc}
 		\hline
@@ -458,14 +477,15 @@
 		\hline
 	\end{array}
 	\]
-	
-	
+	\label{tab:kmeans-ato-results}
+	\caption{Main results obtained from the repeated solution of the ATO problem using $k$ scenarios (after reduction) with $k \in [1,15]$.}
+	\end{table}
 	
 	
 	The scenario reduction via K-means preserved the essential characteristics of the demand distribution, allowing us to significantly reduce the problem size while maintaining optimality in the solution.	\\
 	
 	\noindent
-	Additionally, Figure~\ref{fig:rendimentoK-ato} shows the trend of the sample mean expected profit as a function of the number of clusters $k$, including the corresponding standard deviation as error bars. This visualization highlights how increasing $k$ leads to more stable and less variable estimates of the expected profit, with the mean converging as $k$ grows.
+	Additionally, Figure~(\ref{fig:rendimentoK-ato}) shows the trend of the sample mean expected profit as a function of the number of clusters $k$, including the corresponding standard deviation as error bars. This visualization highlights how increasing $k$ leads to more stable and less variable estimates of the expected profit, with the mean converging as $k$ grows.
 	
 	\begin{figure}[H]
 		\centering
@@ -525,7 +545,7 @@
 	
 	\subsection{Newsvendor Problem}
 	
-	For the Newsvendor problem, we applied the scenario reduction method based on the Wasserstein distance, which is designed to preserve the probabilistic structure of the original set of scenarios as closely as possible. The resulting reduced problems are summarized in Table~\ref{tab:wass-nv-results}, where $\forall k \in [1,15]$ and $N = 74$ the following were given:
+	For the Newsvendor problem, we applied the scenario reduction method based on the Wasserstein distance, which is designed to preserve the probabilistic structure of the original set of scenarios as closely as possible. The resulting reduced problems are summarized in Table~(\ref{tab:wass-nv-results}), where $\forall k \in [1,15]$ and $N = 74$ the following were given:
 	\begin{itemize}
 		\item $\bar{p}_{N}:$ estimation of the expected value of the profit with $95\%$ confidence interval, obtained by considering the sample mean computed using the $N$ values from solving the problem for each sample; 
 		\item $s^{2}_{N}:$ sample variance of the expected values of the profit;
@@ -533,6 +553,7 @@
 		\item $t_{S}:$ average computation time for solving the Newsvendor problem with $k$ scenarios;
 	\end{itemize}~
 	
+	\begin{table}[H]
 	\[
 	\begin{array}{ccccc}
 		\hline
@@ -556,15 +577,14 @@
 		\hline
 	\end{array}
 	\]
-	
-	
+	\caption{Main results obtained from the repeated solution of the Newsvendor problem using $k$ scenarios (after reduction) with $k \in [1,15]$.}
 	\label{tab:wass-nv-results}
-	
+	\end{table}
 	
 	\noindent These results demonstrate the effectiveness of Wasserstein reduction: although the number of scenarios is significantly decreased, the essential statistical features of the original demand distribution are maintained. The reduced scenario set still allows the optimization model to find a solution that is both robust and close to the original optimal profit.
 	
 	\noindent
-	Additionally, Figure~\ref{fig:rendimentoWass-nv} shows the trend of the sample mean expected profit as a function of the number of clusters $k$, including the corresponding standard deviation as error bars. This visualization highlights how increasing $k$ leads to more stable and less variable estimates of the expected profit, with the mean converging as $k$ grows.
+	Additionally, Figure~(\ref{fig:rendimentoWass-nv}) shows the trend of the sample mean expected profit as a function of the number of clusters $k$, including the corresponding standard deviation as error bars. This visualization highlights how increasing $k$ leads to more stable and less variable estimates of the expected profit, with the mean converging as $k$ grows.
 	
 	\begin{figure}[H]
 		\centering
@@ -575,7 +595,7 @@
 	
 	\subsection{ATO Problem}
 	
-	In this subsection, we report the results for the Assemble-to-Order (ATO) problem using scenario reduction via the Wasserstein distance. The original multidimensional demand scenarios were reduced to $k \in [1,15]$ representative scenarios by solving the exact MILP formulation that minimizes the Wasserstein distance, ensuring that the probabilistic and structural characteristics of the original distribution are preserved as faithfully as possible. The resulting reduced problems are summarized in Table\ref{tab:wass-ato-results}, where $\forall k \in [1,15]$  and $N = 85 $ the following were given:
+	In this subsection, we report the results for the Assemble-to-Order (ATO) problem using scenario reduction via the Wasserstein distance. The original multidimensional demand scenarios were reduced to $k \in [1,15]$ representative scenarios by solving the exact MILP formulation that minimizes the Wasserstein distance, ensuring that the probabilistic and structural characteristics of the original distribution are preserved as faithfully as possible. The resulting reduced problems are summarized in Table(\ref{tab:wass-ato-results}), where $\forall k \in [1,15]$  and $N = 85 $ the following were given:
 	\begin{itemize}
 		\item $\bar{p}_{N}:$ estimation of the expected value of the profit with $95\%$ confidence interval, obtained by considering the sample mean computed using the $N$ values from solving the problem for each sample;
 		\item $s^{2}_{N}:$ sample variance of the expected values of the profit;
@@ -583,6 +603,7 @@
 		\item $t_{S}:$ average computation time for solving the Newsvendor problem with $k$ scenarios;
 	\end{itemize}~
 	
+	\begin{table}[H]
 	\[
 	\begin{array}{ccccc}
 		\hline
@@ -606,11 +627,13 @@
 		\hline
 	\end{array}
 	\]
-	
+	\caption{Main results obtained from the repeated solution of the Newsvendor problem using $k$ scenarios (after reduction) with $k \in [1,15]$.}
+	\label{tab:wass-ato-results}
+	\end{table}
 	This outcome highlights the robustness and accuracy of the Wasserstein-based scenario reduction, which manages to preserve the key features of the stochastic demand while significantly reducing computational complexity.\\
 	
 	\noindent
-	Additionally, Figure~\ref{fig:rendimentoWass-ato} shows the trend of the sample mean expected profit as a function of the number of clusters $k$, including the corresponding standard deviation as error bars. This visualization highlights how increasing $k$ leads to more stable and less variable estimates of the expected profit, with the mean converging as $k$ grows.
+	Additionally, Figure~(\ref{fig:rendimentoWass-ato}) shows the trend of the sample mean expected profit as a function of the number of clusters $k$, including the corresponding standard deviation as error bars. This visualization highlights how increasing $k$ leads to more stable and less variable estimates of the expected profit, with the mean converging as $k$ grows.
 	
 	\begin{figure}[H]
 		\centering
@@ -622,9 +645,9 @@
 	\newpage	
 	\section{Efficiency}
 	
-	In this section, we analyze and compare the computational efficiency of the scenario reduction techniques for both the Newsvendor and ATO problems. The analysis focuses on the execution times of the full solution, the K-means clustering reduction, and the Wasserstein distance-based reduction for varying values of $k$. All times are averaged over the different samples for each case.
+	In this section, we analyze and compare the computational efficiency of the scenario reduction techniques for both the Newsvendor and ATO problems. The analysis focuses on the execution times of the full solution, the K-means clustering reduction, and the Wasserstein distance-based reduction for varying values of $k$. All times are averaged over the different samples for each case.\\
 	
-	Figure~\ref{fig:timing-ato} reports the total computation times for the ATO problem, including both the scenario reduction (with K-means and Wasserstein) and the subsequent optimization for $k \in [1,15]$. Each bar shows the average execution time for the corresponding algorithm and cluster size. It is evident that, while the time required for solving the reduced optimization problems remains almost negligible, the time spent in scenario reduction (especially using the Wasserstein approach) can become significant, and grows as $k$ decreases. The Wasserstein reduction is consistently more expensive than K-means, particularly for small $k$, due to the MILP formulation solved for each sample.
+	\noindent Figure~(\ref{fig:timing-ato}) reports the total computation times for the ATO problem, including both the scenario reduction (with K-means and Wasserstein) and the subsequent optimization for $k \in [1,15]$. Each bar shows the average execution time for the corresponding algorithm and cluster size. It is evident that, while the time required for solving the reduced optimization problems remains almost negligible, the time spent in scenario reduction (especially using the Wasserstein approach) can become significant, and grows as $k$ decreases. The Wasserstein reduction is consistently more expensive than K-means, particularly for small $k$, due to the MILP formulation solved for each sample.
 	
 	\begin{figure}[H]
 		\centering
@@ -645,29 +668,23 @@
 		 \end{figure}
 	
 	\noindent
-	A direct comparison between the Newsvendor and ATO problems reveals that the same trends hold across both applications. As shown in Figure~\ref{fig:timing-nv} for the Newsvendor problem, the total execution time for scenario reduction using the Wasserstein approach is substantially higher than for K-means, especially for low values of $k$, confirming the computational burden of the MILP-based method. The optimization times themselves, for both problems, are consistently negligible compared to the reduction phases.
+	A direct comparison between the Newsvendor and ATO problems reveals that the same trends hold across both applications. As shown in Figure~(\ref{fig:timing-nv}) for the Newsvendor problem, the total execution time for scenario reduction using the Wasserstein approach is substantially higher than for K-means, especially for low values of $k$, confirming the computational burden of the MILP-based method. The optimization times themselves, for both problems, are consistently negligible compared to the reduction phases.	Notably, as the number of clusters $k$ increases, the computational gap between K-means and Wasserstein narrows, yet the latter always remains more expensive. This effect is even more pronounced in the ATO problem, where the multidimensional nature of the scenarios further increases the cost of Wasserstein reduction. \\
 	
-	Notably, as the number of clusters $k$ increases, the computational gap between K-means and Wasserstein narrows, yet the latter always remains more expensive. This effect is even more pronounced in the ATO problem, where the multidimensional nature of the scenarios further increases the cost of Wasserstein reduction.
-	
-	These results emphasize the practical trade-off: while Wasserstein-based scenario reduction may yield a reduced set that better preserves the probabilistic features of the original distribution, the K-means heuristic is far more computationally efficient and, as observed in previous sections, delivers very similar performance in terms of solution quality for both studied problems. Thus, for large-scale or high-dimensional problems, K-means remains the preferred option unless maximum distributional fidelity is required.
+	\noindent These results emphasize the practical trade-off: while Wasserstein-based scenario reduction may yield a reduced set that better preserves the probabilistic features of the original distribution, the K-means heuristic is far more computationally efficient and, as observed in previous sections, delivers very similar performance in terms of solution quality for both studied problems. Thus, for large-scale or high-dimensional problems, K-means remains the preferred option unless maximum distributional fidelity is required.
 	
 	
 	\newpage
 	
 	\section{Discussion}
 	
-	\textcolor{red}{Modifica in base ai risultati.}\\
-	
 	\noindent From the chart, we observe that the time required to solve the full problem without reduction (\texttt{Full\_Solution}) is significantly lower than the time spent in the reduction phases (\texttt{KMeans\_Reduction} and \texttt{Wasserstein\_Reduction}), which dominate the total computational cost. Conversely, the actual optimization on the reduced scenario sets (\texttt{KMeans\_Solution} and 
 	
-	\texttt{Wasserstein\_Solution}) is almost negligible in terms of time. This result highlights that the bottleneck is the reduction procedure itself --especially when using methods such as K-means or Wasserstein MILP— while the optimization stage becomes extremely fast once the scenario set is reduced. Therefore, the choice of the reduction algorithm and its implementation has a direct impact on the overall computational efficiency of the workflow. . However, once the reduced scenario set is obtained, the final optimization becomes extremely efficient. This analysis confirms that, for moderate instance sizes, the major computational effort is concentrated in the scenario reduction phase—especially for methods based on mathematical programming—while the actual optimization benefits greatly from working on a smaller scenario set. Thus, efficiency considerations must take into account not only the quality of the reduced scenarios, but also the time required for the reduction procedure itself. The analyses presented in this report highlight important aspects regarding both the quality of solutions and the computational efficiency of different scenario reduction techniques when applied to the Newsvendor and Assemble-to-Order (ATO) problems.\\
+	\texttt{Wasserstein\_Solution}) is almost negligible in terms of time. This result highlights that the bottleneck is the reduction procedure itself --especially when using methods such as K-means or Wasserstein MILP— while the optimization stage becomes extremely fast once the scenario set is reduced. Therefore, the choice of the reduction algorithm and its implementation has a direct impact on the overall computational efficiency of the workflow. However, once the reduced scenario set is obtained, the final optimization becomes extremely efficient. This analysis confirms that, for moderate instance sizes, the major computational effort is concentrated in the scenario reduction phase—especially for methods based on mathematical programming—while the actual optimization benefits greatly from working on a smaller scenario set. Thus, efficiency considerations must take into account not only the quality of the reduced scenarios, but also the time required for the reduction procedure itself. The analysis presented in this report highlight important aspects regarding both the quality of solutions and the computational efficiency of different scenario reduction techniques when applied to the Newsvendor and Assemble-to-Order (ATO) problems.\\
 	
 	
-	From a solution perspective, all scenario reduction methods—K-means and Wasserstein distance—were able to preserve the essential structure of the original problems. In both cases, the optimal decisions (order quantity for Newsvendor, component production plan for ATO) and the expected profit obtained with the reduced scenario sets were virtually identical to those derived from the full set of scenarios. This demonstrates the effectiveness of both K-means and Wasserstein-based reductions in maintaining solution quality while decreasing the scenario space.\\
+\noindent	From a solution perspective, all scenario reduction methods—K-means and Wasserstein distance—were able to preserve the essential structure of the original problems, although, by its nature, heuristics based on Wasserstein distance are able to remain more faithful to the probabilistic information contained in the initial data. Moreover, in both cases, the expected profits derived from the reduced sets of scenarios have a decreasing trend as $k$ increases, and tends to get closer to those derived from the full set of scenarios. A reduction that does not require too large a number of new clusters (note that for both problems the maximum value of $k$ was set at 15), keeps the expected value results fairly close to those obtained through the starting set of scenarios. However, it is worth mentioning that, in reducing the scenarios through Kmeans, the standard deviation of the obtained estimate is larger than the case in which the full set of scenarios are considered. In contrast, for the reduction of scenarios based on Wasserstein distance, the standard deviation is smaller when compared with that associated with the “rival” reduction technique, and more faithful to that obtained in the case where the full set of scenarios are considered. This was exactly what was expected from the nature of this heuristics, which despite the computational cost, tend to better preserve and capture the probabilistic information present in the original samples. Moreover, looking at the ESS graphs, for both problems clustering through Kmeans suggests that values such as 3-4 are sufficient to have a fairly accurate description of the source problem. Comparing this with the values obtained, it can be observed that, in our study, this is true for the Newsvendor problem, but false for the ATO problem, probably due to its more complex nature. For this problem, in fact, for $k = 4$ the expected value estimate is still quite far from a solution that is satisfactory enough.\\
 	
-	When considering computational efficiency, however, the results highlight important differences. The computational cost of the actual optimization, both for the full and reduced scenario sets, is negligible for both problems. The majority of the total computation time is instead spent on the scenarios reduction phase itself, with the Wasserstein MILP approach being the most time-consuming, especially for the multidimensional ATO case. K-means, while still significantly slower than the direct optimization, consistently requires less time than the Wasserstein-based reduction.\\
-	
-	\noindent Comparing the two problems, the trends remain similar: the scenario reduction phase dominates the total computational time--especially as the dimensionality of the problem increases--but both reduction methods succeed in dramatically simplifying the scenario set without any meaningful loss in solution quality. In summary, the choice of the reduction technique may be guided by the available computational resources and the problem's dimensionality: K-means offers faster execution and satisfactory accuracy for most practical purposes, while the Wasserstein approach is preferable when maximum fidelity to the original probability distribution is required, at the expense of increased computation time.
+	\noindent In summary, the choice of the reduction technique may be guided by the available computational resources and the problem's dimensionality: K-means offers faster execution and satisfactory accuracy for most practical purposes, while the Wasserstein approach is preferable when maximum fidelity to the original probability distribution is required, at the expense of increased computation time.
 	
 	%	\begin{table}[htbp]
 		%		\centering
