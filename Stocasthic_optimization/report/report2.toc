@@ -9,12 +9,12 @@
 \contentsline {subsection}{\numberline {3.2}Scenario Tree Generation}{5}{subsection.3.2}%
 \contentsline {section}{\numberline {4}Results with all scenarios}{6}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Newsvendor Problem}{6}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}ATO Problem}{8}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2}ATO Problem}{9}{subsection.4.2}%
 \contentsline {section}{\numberline {5}Results with K-means reduction}{12}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Newsvendor Problem}{12}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}ATO Problem}{14}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Results with Wasserstein distance--based reduction}{17}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Newsvendor Problem}{19}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}ATO Problem}{20}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Efficiency}{22}{section.7}%
-\contentsline {section}{\numberline {8}Discussion}{23}{section.8}%
+\contentsline {subsection}{\numberline {5.1}Newsvendor Problem}{13}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}ATO Problem}{15}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Results with Wasserstein distance--based reduction}{19}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Newsvendor Problem}{21}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}ATO Problem}{22}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Efficiency}{25}{section.7}%
+\contentsline {section}{\numberline {8}Discussion}{27}{section.8}%
