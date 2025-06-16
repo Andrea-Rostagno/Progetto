@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 from scenario_tree import *
 from models.newsvendor_model import solve_newsvendor
 
+n_sets = 20           
+n_scenarios = 50      
 
 class EasyStochasticModel(StochModel):
     def __init__(self, sim_setting):
@@ -25,8 +27,8 @@ class EasyStochasticModel(StochModel):
         return probs, obs 
 
 sim_setting = {
-    'averages': [25] * 20,  # 20 scenari iniziali
-    'variances': [200] * 20,
+    'averages': [25] * n_sets,  
+    'variances': [200] * n_sets,
     'seed': 123
 }
 
@@ -34,7 +36,7 @@ easy_model = EasyStochasticModel(sim_setting)
 
 scen_tree = ScenarioTree(
     name="std_MC_newsvendor_tree",
-    branching_factors=[50], #massimo 50 se no scoppia
+    branching_factors=[n_scenarios], #max 44 , because of licence
     len_vector=20,
     initial_value=[0],
     stoch_model=easy_model,
@@ -45,8 +47,6 @@ scen_tree.plot()
 ################################################################################################
 
 # --- Parametri iniziali 20 scenari---
-n_sets = 20           # numero di set/scenari paralleli
-n_scenarios = 50      # numero di scenari per ogni set
 confidence_level = 0.95
 width = 10.0
 
@@ -57,7 +57,7 @@ for j in range(n_sets):
     probs = []
     for node_id in scen_tree.leaves:
         node = scen_tree.nodes[node_id]
-        demand = float(node['obs'][j])         # prendi il j-esimo scenario!
+        demand = float(node['obs'][j])         
         demand = max(0, round(demand))         # valori interi e >= 0
         demands.append(demand)
         probs.append(node['path_prob'])
@@ -79,7 +79,7 @@ for j in range(n_sets):
     # print("💰 Profitto atteso massimo:", f"{result['objective']:.2f}€")
     # print(f"⏱️ Tempo ottimizzazione: {end-start:.4f} s")
 
-# ---- Alla fine: statistiche su tutti i set ----s
+# ---- statistiche su tutti i set ----s
 results = np.array(results)
 print("\n===========================")
 print(f"Statistiche sui 20 set:")
@@ -113,7 +113,7 @@ easy_model = EasyStochasticModel(sim_setting)
 
 scen_tree = ScenarioTree(
     name="std_MC_newsvendor_tree",
-    branching_factors=[50], #massimo 50 se no scoppia
+    branching_factors=[n_scenarios], 
     len_vector=new_num_set,
     initial_value=[0],
     stoch_model=easy_model,
@@ -128,7 +128,7 @@ for j in range(new_num_set):
     probs = []
     for node_id in scen_tree.leaves:
         node = scen_tree.nodes[node_id]
-        demand = float(node['obs'][j])         # prendi il j-esimo scenario!
+        demand = float(node['obs'][j])         
         demand = max(0, round(demand))         # valori interi e >= 0
         demands.append(demand)
         probs.append(node['path_prob'])
@@ -153,7 +153,7 @@ for j in range(new_num_set):
     # print("💰 Profitto atteso massimo:", f"{result['objective']:.2f}€")
     # print(f"⏱️ Tempo ottimizzazione: {end-start:.4f} s")
 
-# ---- Alla fine: statistiche su tutti i set ----s
+# ---- statistiche su tutti i set ----s
 results = np.array(results)
 mean_time = np.mean(times)
 timing_results['Full_Solution'] = mean_time
@@ -174,6 +174,7 @@ print(f"actual_width: {actual_width:.2f}")
 
 ##################################################################################################
 
+# --- Riduzione degli scenari via KMeans ---
 k_min = 1
 k_max = 15
 all_means, all_stds, all_times_red, all_times_solve = [], [], [], []
@@ -203,7 +204,7 @@ for k in range(k_min, k_max+1):
         demands_reduced, probs_reduced, sse_kj = scen_tree.reduce_scenarios_kmeans_1D(demands_agg, probs_agg, k=k)
         end = time.perf_counter()
         times_k.append(end - start)
-        sse[k-1, j] = sse_kj # estraggo il valore dell'SSE per la clusterizzazione a k scenari, del j-esimo campione 
+        sse[k-1, j] = sse_kj # valore dell'SSE per la clusterizzazione a k scenari, del j-esimo campione 
         
         # Stampa scenari ridotti 
         # print(f"\n📉 Scenari ridotti via Clustering KMeans (set {j+1}, k={k}):")

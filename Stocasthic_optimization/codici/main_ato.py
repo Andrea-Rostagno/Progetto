@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 from scenario_tree import *
 from models.ato_model import solve_ato
 
-n_scenarios = 40      # numero di scenari per ogni set
-n_sets = 20           # numero di set/scenari paralleli
+n_scenarios = 40      
+n_sets = 20           
 
 class EasyStochasticModel(StochModel):
     def __init__(self, sim_setting):
@@ -51,11 +51,11 @@ width = 1.0
 results = []
 timing_results = {}
 
-# Parametri ATO (slide pizzaiolo)
-C = [3, 2, 2]         # costi componenti (aumentali)
-P = [7, 10]            # prezzi prodotti (margine più basso)
+# Parametri ATO 
+C = [3, 2, 2]         # costi componenti 
+P = [7, 10]            # prezzi prodotti 
 T = [0.5, 0.25, 0.25]
-L = 8                # ore disponibili (più rilassato)
+L = 8                # ore disponibili 
 G = [
     [1, 1],
     [1, 1],
@@ -68,7 +68,7 @@ for j in range(n_sets):
     for node_id in scen_tree.leaves:
         node = scen_tree.nodes[node_id]
         d1 = max(0, round(node['obs'][j]))        # Margherita (j-esimo set)
-        d2 = max(0, round(node['obs'][(j+1)%n_sets])) # 4 Stagioni (shift per esempio; personalizza secondo come hai generato i dati)
+        d2 = max(0, round(node['obs'][(j+1)%n_sets])) # 4 Stagioni 
         demands.append([d1, d2])
         probs.append(node['path_prob'])
 
@@ -120,7 +120,7 @@ print(f"actual_width: {actual_width:.2f}")
 
 ###################################################################################################
 
-# --- Riduzione degli scenari per avere un intervallo di confidenza di 10€ ---
+# --- Riduzione degli scenari per avere un intervallo di confidenza di 1€ ---
 new_num_set =  int((np.std(results) * 2 * z/ width)**2)
 print(f"new_num_set: {new_num_set}")
 
@@ -134,7 +134,7 @@ easy_model = EasyStochasticModel(sim_setting)
 
 scen_tree = ScenarioTree(
     name="std_MC_ato_tree",
-    branching_factors=[n_scenarios], #massimo 50 se no scoppia
+    branching_factors=[n_scenarios], #max 44, because of the licence
     len_vector=new_num_set,
     initial_value=[0, 0],
     stoch_model=easy_model,
@@ -150,7 +150,7 @@ for j in range(new_num_set):
     for node_id in scen_tree.leaves:
         node = scen_tree.nodes[node_id]
         d1 = max(0, round(node['obs'][j]))        # Margherita (j-esimo set)
-        d2 = max(0, round(node['obs'][(j+1)%new_num_set])) # 4 Stagioni (shift per esempio; personalizza secondo come hai generato i dati)
+        d2 = max(0, round(node['obs'][(j+1)%new_num_set])) # 4 Stagioni 
         demands.append([d1, d2])
         probs.append(node['path_prob'])
 
@@ -179,7 +179,7 @@ for j in range(new_num_set):
     # salva risultati
     results.append(result['objective'])
 
-# ---- Alla fine: statistiche su tutti i set ----s
+# ---- statistiche su tutti i set ----s
 results = np.array(results)
 mean_time = np.mean(times)
 timing_results['Full_Solution'] = mean_time
@@ -221,7 +221,7 @@ for k in range(k_min, k_max+1):
         for node_id in scen_tree.leaves:
             node = scen_tree.nodes[node_id]
             d1 = max(0, round(node['obs'][j]))        # Margherita (j-esimo set)
-            d2 = max(0, round(node['obs'][(j+1)%new_num_set])) # 4 Stagioni (shift per esempio; )
+            d2 = max(0, round(node['obs'][(j+1)%new_num_set])) # 4 Stagioni 
             demands.append([d1, d2])
             probs.append(node['path_prob'])
 
@@ -232,7 +232,7 @@ for k in range(k_min, k_max+1):
         demands_reduced, probs_reduced, sse_kj = scen_tree.reduce_scenarios_kmeans_multiD(demands_agg, probs_agg, k=k)
         end = time.perf_counter()
         times_k.append(end - start)
-        sse[k-1, j] = sse_kj # estraggo il valore dell'SSE per la clusterizzazione a k scenari, del j-esimo campione 
+        sse[k-1, j] = sse_kj # valore dell'SSE per la clusterizzazione a k scenari, del j-esimo campione 
 
         start = time.perf_counter()
         result = solve_ato(
@@ -297,7 +297,7 @@ for k in range(k_min, k_max+1):
         for node_id in scen_tree.leaves:
             node = scen_tree.nodes[node_id]
             d1 = max(0, round(node['obs'][j]))          # domanda Margherita, set j
-            d2 = max(0, round(node['obs'][(j+1)%new_num_set]))  # domanda 4 Stagioni, set j+1 (personalizza pairing se necessario)
+            d2 = max(0, round(node['obs'][(j+1)%new_num_set]))  # domanda 4 Stagioni
             demands.append([d1, d2])
             probs.append(node['path_prob'])
 

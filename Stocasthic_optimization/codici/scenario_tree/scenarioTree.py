@@ -169,7 +169,7 @@ class ScenarioTree(nx.DiGraph):
         centers = kmeans.cluster_centers_.flatten()
         labels = kmeans.labels_
 
-        # 2) Ricostruisci le nuove probabilità come somma dei pesi in ciascun cluster
+        # 2) nuove probabilità come somma dei pesi in ciascun cluster
         probs = np.zeros(k)
         for i in range(len(X)):
             probs[labels[i]] += mu[i]
@@ -207,7 +207,7 @@ class ScenarioTree(nx.DiGraph):
         centers = kmeans.cluster_centers_
         labels = kmeans.labels_
 
-        # Ricostruisci le nuove probabilità
+        # nuove probabilità
         probs = np.zeros(k)
         for i in range(len(X)):
             probs[labels[i]] += mu[i]
@@ -236,7 +236,7 @@ class ScenarioTree(nx.DiGraph):
         X          : array-like, shape (m,)   punti di domanda originali
         mu         : array-like, shape (m,)   probabilità originali (somma = 1)
         k          : int                      # scenari da mantenere
-        p          : int/float, default 1     norma L^p (p=1 distance manhattan^1)
+        p          : int/float, default 1     norma L^p 
         time_limit : int/float or None        limite secondi per Gurobi
         verbose    : bool                     se True stampa log solver
 
@@ -254,7 +254,7 @@ class ScenarioTree(nx.DiGraph):
         # 1) matrice costi |xi - xj|^p
         C = self.compute_cost_matrix_unidimensional(X, X, p=p)
 
-        # 2) modello MIP
+        # 2) modello 
         mdl = gp.Model("ScenarioReductionMIP")
         if not verbose:
             mdl.setParam("OutputFlag", 0)
@@ -338,7 +338,7 @@ class ScenarioTree(nx.DiGraph):
         # 1) matrice costi ‖x_i − x_j‖_p^p
         C = self.compute_cost_matrix_multidimensional(X, X, p=p)      # shape (m, m)
 
-        # 2) modello MILP
+        # 2) modello 
         mdl = gp.Model("ScenarioReductionMIP_multiD")
         if not verbose:
             mdl.setParam("OutputFlag", 0)
@@ -475,7 +475,7 @@ class ScenarioTree(nx.DiGraph):
         # Create a Gurobi model
         model = gp.Model("wasserstein")
 
-        # Disable Gurobi output (comment this if you want to see Gurobi's solver output)
+        # Disable Gurobi output 
         model.setParam("OutputFlag", 0)
 
         # Decision variables: transport plan gamma_ij
