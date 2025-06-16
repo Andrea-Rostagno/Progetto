@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.5.29)  15 JUN 2025 19:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.5.29)  16 JUN 2025 13:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -728,14 +728,14 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 3.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 8
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 7
 .
 
 (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 8.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 7.
 )
 \tf@toc=\write5
 \openout5 = `report2.toc'.
@@ -743,9 +743,13 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
 
 
 [1]
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
+
+ []
+
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 5
 8.
- (/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
+(/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
@@ -757,6 +761,11 @@ been already used, duplicate ignored
 l.63 	\newpage
                [1{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/sha
 re/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 96--97
+
+ []
+
+
 
 [2{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fo
 nts/enc/dvips/lm/lm-mathsy.enc}]
@@ -765,15 +774,20 @@ nts/enc/dvips/lm/lm-mathsy.enc}]
 
 [4]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 158.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 157.
 
-Underfull \hbox (badness 10000) in paragraph at lines 188--189
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 198--199
 
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 200--201
 
-[5]
+ []
+
+
 
 [6]
 Underfull \hbox (badness 10000) in paragraph at lines 211--212
@@ -812,10 +826,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 220--221
 []\T1/lmr/bx/n/10 Probability
  []
 
-<../immagini/scenariNV.png, id=162, 987.2082pt x 489.9906pt>
+<../immagini/scenariNV.png, id=158, 987.2082pt x 489.9906pt>
 File: ../immagini/scenariNV.png Graphic file (type png)
 <use ../immagini/scenariNV.png>
-Package pdftex.def Info: ../immagini/scenariNV.png  used on input line 245.
+Package pdftex.def Info: ../immagini/scenariNV.png  used on input line 244.
 (pdftex.def)             Requested size: 390.0pt x 193.57033pt.
 
 
@@ -824,9 +838,14 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.249 	
+l.248 	
        ]
 Underfull \hbox (badness 10000) in paragraph at lines 269--270
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 271--272
 
  []
 
@@ -837,165 +856,201 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.274 	
-        <../immagini/scenariNV.png>]
-<../immagini/scenariATO.png, id=180, 987.2082pt x 489.9906pt>
+l.273 	\noindent
+                 The scenarios were generated as follows: <../immagini/scenariN
+V.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 284--285
+
+ []
+
+
+
+[9]
+<../immagini/scenariATO.png, id=183, 987.2082pt x 489.9906pt>
 File: ../immagini/scenariATO.png Graphic file (type png)
 <use ../immagini/scenariATO.png>
-Package pdftex.def Info: ../immagini/scenariATO.png  used on input line 315.
+Package pdftex.def Info: ../immagini/scenariATO.png  used on input line 322.
 (pdftex.def)             Requested size: 390.0pt x 193.57033pt.
 
 
-[9
+[10
 pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.335 	\newpage
+l.342 	\newpage
                ]
 
-[10
+[11
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.335 	\newpage
+l.342 	\newpage
                 <../immagini/scenariATO.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 342--343
+Underfull \hbox (badness 10000) in paragraph at lines 345--348
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 349--350
 
  []
 
 
 
-[11]
-
 [12]
-<../immagini/sseNV.png, id=203, 462.528pt x 346.896pt>
+Underfull \hbox (badness 10000) in paragraph at lines 390--391
+
+ []
+
+<../immagini/sseNV.png, id=202, 462.528pt x 346.896pt>
 File: ../immagini/sseNV.png Graphic file (type png)
 <use ../immagini/sseNV.png>
-Package pdftex.def Info: ../immagini/sseNV.png  used on input line 387.
+Package pdftex.def Info: ../immagini/sseNV.png  used on input line 397.
 (pdftex.def)             Requested size: 312.00119pt x 234.01236pt.
 
 
-[13
+[13]
+
+[14
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.427 	\]
+l.437 	\]
           <../immagini/sseNV.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 442--443
 
-[14]
-<../immagini/sseATO.png, id=215, 462.528pt x 346.896pt>
+ []
+
+<../immagini/sseATO.png, id=214, 462.528pt x 346.896pt>
 File: ../immagini/sseATO.png Graphic file (type png)
 <use ../immagini/sseATO.png>
-Package pdftex.def Info: ../immagini/sseATO.png  used on input line 437.
+Package pdftex.def Info: ../immagini/sseATO.png  used on input line 450.
 (pdftex.def)             Requested size: 312.00119pt x 234.01236pt.
 
 
-[15
+[15]
+
+[16
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.442 	\newpage
+l.455 	\newpage
                 <../immagini/sseATO.png>]
-Overfull \hbox (6.84854pt too wide) in paragraph at lines 443--443
+Overfull \hbox (6.84854pt too wide) in paragraph at lines 456--456
 []\T1/lmr/bx/n/17.28 Results with Wasser-stein distance--based re-
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 458--459
 
-[16]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 463--465
+
+ []
+
+
 
 [17]
+Underfull \hbox (badness 10000) in paragraph at lines 488--490
+
+ []
+
+
 
 [18]
 
 [19]
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 568--569
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 579--580
 
  []
 
-<../immagini/tempiNV.png, id=246, 722.7pt x 361.35pt>
+<../immagini/tempiNV.png, id=249, 722.7pt x 361.35pt>
 File: ../immagini/tempiNV.png Graphic file (type png)
 <use ../immagini/tempiNV.png>
-Package pdftex.def Info: ../immagini/tempiNV.png  used on input line 574.
+Package pdftex.def Info: ../immagini/tempiNV.png  used on input line 585.
 (pdftex.def)             Requested size: 390.0pt x 194.99928pt.
 
 
-[21
+[22
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.599 	\newpage
-               
-pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.599 	\newpage
+l.613 	\newpage
                 <../immagini/tempiNV.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 603--604
+Underfull \hbox (badness 10000) in paragraph at lines 617--618
 
  []
 
 
-Overfull \hbox (48.26466pt too wide) in paragraph at lines 605--606
+Overfull \hbox (48.26466pt too wide) in paragraph at lines 619--620
 \T1/lmr/m/n/12 miza-tion on the re-duced sce-nario sets (\T1/lmtt/m/n/12 KMeans
 _Solution \T1/lmr/m/n/12 and \T1/lmtt/m/n/12 Wasserstein_Solution\T1/lmr/m/n/12
  )
  []
 
 
-Overfull \hbox (25.79878pt too wide) in paragraph at lines 607--608
+Overfull \hbox (25.79878pt too wide) in paragraph at lines 621--622
 \T1/lmr/m/n/12 self^^Vespecially when us-ing meth-ods such as K-means or Wasser
 -stein MILP^^Vwhile
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 607--608
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 618--619
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 620--621
+Underfull \hbox (badness 10000) in paragraph at lines 621--622
 
  []
 
 
 
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 622--623
+[23
+pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.630 	
+       ]
+Underfull \hbox (badness 10000) in paragraph at lines 632--633
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 634--635
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 636--637
 
  []
 
 
 
-[23] (./report2.aux)
+[24] (./report2.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `report2.out' has not changed.
-(rerunfilecheck)             Checksum: ED8CE90DE215DC5B8839152CA2FFEDC2;3333.
+(rerunfilecheck)             Checksum: AE6FD300B49A54B161957CCA051143EB;3172.
  ) 
 Here is how much of TeX's memory you used:
- 22541 strings out of 475171
- 406060 string characters out of 5767095
- 792683 words of memory out of 5000000
- 45086 multiletter control sequences out of 15000+600000
+ 22550 strings out of 475171
+ 406217 string characters out of 5767095
+ 790659 words of memory out of 5000000
+ 45091 multiletter control sequences out of 15000+600000
  631853 words of font info for 93 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 84i,11n,87p,868b,546s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,11n,87p,980b,571s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dis
 t/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm
 /lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share
@@ -1007,10 +1062,10 @@ pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-di
 st/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/l
 m/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/shar
 e/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on report2.pdf (25 pages, 544337 bytes).
+Output written on report2.pdf (26 pages, 543649 bytes).
 PDF statistics:
- 352 PDF objects out of 1000 (max. 8388607)
- 280 compressed objects within 3 object streams
- 55 named destinations out of 1000 (max. 500000)
- 206 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 355 PDF objects out of 1000 (max. 8388607)
+ 282 compressed objects within 3 object streams
+ 59 named destinations out of 1000 (max. 500000)
+ 198 words of extra memory for PDF output out of 10000 (max. 10000000)
 

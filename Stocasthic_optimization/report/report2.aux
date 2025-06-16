@@ -6,7 +6,6 @@
 \@writefile{toc}{\contentsline {section}{\numberline {2}Problems explanation}{2}{section.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Newsvendor Problem}{2}{subsection.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.1}Problem Formulation}{2}{subsubsection.2.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.2}Optimization Model}{3}{subsubsection.2.1.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Assemble-to-Order (ATO) Problem}{3}{subsection.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}Problem Formulation}{3}{subsubsection.2.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}The class \texttt  {ScenarioTree}}{5}{section.3}\protected@file@percent }
@@ -14,35 +13,35 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Scenario Tree Generation}{5}{subsection.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Results with all scenarios}{6}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Newsvendor Problem}{6}{subsection.4.1}\protected@file@percent }
-\newlabel{tab:newsvendor-general}{{4.1}{7}{Newsvendor Problem}{subsection.4.1}{}}
+\newlabel{tab:newsvendor-general}{{4.1}{7}{Newsvendor Problem}{Item.2}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces An example of discrete demand values and aggregated probabilities used in the Newsvendor model. First, an initial set with cardinality equal to 50 of equiprobabilistic scenarios was generated. Following the aggregation operation, the scenarios are reduced to 31, with probabilities no longer all equal.}}{7}{table.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Visualization of an example of scenario tree, used in the analysis of the Newsvendor problem. The tree is composed of 10 equiprobabilistic sets, each of dimension 5 sampled from a multivariate normal distribution of dimension 5 with parameters $\mu = 25, \sigma ^{2} = 200$, before rounding and aggregation.}}{8}{figure.1}\protected@file@percent }
-\newlabel{fig:scenariotree-plot}{{1}{8}{Visualization of an example of scenario tree, used in the analysis of the Newsvendor problem. The tree is composed of 10 equiprobabilistic sets, each of dimension 5 sampled from a multivariate normal distribution of dimension 5 with parameters $\mu = 25, \sigma ^{2} = 200$, before rounding and aggregation}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Visualization of an example of scenario tree, used in the analysis of the Newsvendor problem. The tree is composed of 10 equiprobabilistic sets, each of dimension 5 sampled from a multivariate normal distribution of dimension 5 with parameters $\mu = 25, \sigma ^{2} = 200$, before rounding and aggregation. The scenario tree clearly illustrating the branching structure, node values, and probabilities. }}{8}{figure.1}\protected@file@percent }
+\newlabel{fig:scenariotree-plot}{{1}{8}{Visualization of an example of scenario tree, used in the analysis of the Newsvendor problem. The tree is composed of 10 equiprobabilistic sets, each of dimension 5 sampled from a multivariate normal distribution of dimension 5 with parameters $\mu = 25, \sigma ^{2} = 200$, before rounding and aggregation. The scenario tree clearly illustrating the branching structure, node values, and probabilities}{figure.1}{}}
 \newlabel{tab:nv-results-stat}{{4.1}{8}{Newsvendor Problem}{figure.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}ATO Problem}{8}{subsection.4.2}\protected@file@percent }
-\newlabel{tab:ato-general-results}{{4.2}{9}{ATO Problem}{subsection.4.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces An example of discrete demand values and aggregated probabilities used in the ATO model. First, an initial set with cardinality equal to 50 of equiprobabilistic scenarios (each scenario is a two-dimensional vector) was generated. Following the aggregation operation, the scenarios are reduced to 36, with probabilities no longer all equal.}}{9}{table.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Visualization of an example of scenario tree, used in the analysis of the ATO problem. The tree is composed of 10 equiprobabilistic sets, each of dimension 4, composed of two scenarios for Item 1 and two scenarios for Item 2. They are sampled respectively from a multivariate normal distribution of dimension 2 with parameters $\mu _{1} = 90, \Sigma _{1} = 200 * I_{2}$, and $\mu _{2} = 100, \Sigma _{2} = 2000 * I_{2}$ before rounding and aggregation.}}{10}{figure.2}\protected@file@percent }
-\newlabel{fig:ato-scenariotree}{{2}{10}{Visualization of an example of scenario tree, used in the analysis of the ATO problem. The tree is composed of 10 equiprobabilistic sets, each of dimension 4, composed of two scenarios for Item 1 and two scenarios for Item 2. They are sampled respectively from a multivariate normal distribution of dimension 2 with parameters $\mu _{1} = 90, \Sigma _{1} = 200 * I_{2}$, and $\mu _{2} = 100, \Sigma _{2} = 2000 * I_{2}$ before rounding and aggregation}{figure.2}{}}
-\newlabel{tab:ATO-results-stat}{{4.2}{11}{ATO Problem}{figure.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Results with K-means reduction}{11}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Newsvendor Problem}{11}{subsection.5.1}\protected@file@percent }
-\newlabel{tab:kmeans-nv-results}{{5.1}{12}{Newsvendor Problem}{subsection.5.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces SSE trend graph for $k \in [1,15]$ in case of Newsvendor problem. The figure shows that the appropriate number of points to which to reduce the numerosity of each set is around 3 and 4.}}{13}{figure.3}\protected@file@percent }
-\newlabel{fig:sse-nv}{{3}{13}{SSE trend graph for $k \in [1,15]$ in case of Newsvendor problem. The figure shows that the appropriate number of points to which to reduce the numerosity of each set is around 3 and 4}{figure.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}ATO Problem}{13}{subsection.5.2}\protected@file@percent }
-\newlabel{tab:kmeans-ato-results}{{5.2}{14}{ATO Problem}{subsection.5.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces SSE trend graph for $k \in [1,15]$ in case of ATO problem. The figure shows that the appropriate number of points to which to reduce the numerosity of each set is around 3 and 4.}}{15}{figure.4}\protected@file@percent }
-\newlabel{fig:sse-ato}{{4}{15}{SSE trend graph for $k \in [1,15]$ in case of ATO problem. The figure shows that the appropriate number of points to which to reduce the numerosity of each set is around 3 and 4}{figure.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Results with Wasserstein distance--based reduction}{16}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Newsvendor Problem}{18}{subsection.6.1}\protected@file@percent }
+\newlabel{tab:ato-general-results}{{4.2}{10}{ATO Problem}{Item.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces An example of discrete demand values and aggregated probabilities used in the ATO model. First, an initial set with cardinality equal to 40 of equiprobabilistic scenarios (each scenario is a two-dimensional vector) was generated. Following the aggregation operation, the scenarios are reduced to \textcolor {red}{$\rightarrow $ insert new number of scenarios} , with probabilities no longer all equal.}}{10}{table.2}\protected@file@percent }
+\newlabel{tab:ATO-results-stat}{{4.2}{10}{ATO Problem}{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Visualization of an example of scenario tree, used in the analysis of the ATO problem. The tree is composed of 10 equiprobabilistic sets each of dimension 4, composed of two pairs [Item 1,Item 2], each sampled from a multivariate normal distribution of dimension 2 with parameters $\mu = [10,16], \Sigma = \begin {pmatrix} 70 &0 \\ 0 &90 \end  {pmatrix}$ before rounding and aggregation.}}{11}{figure.2}\protected@file@percent }
+\newlabel{fig:ato-scenariotree}{{2}{11}{Visualization of an example of scenario tree, used in the analysis of the ATO problem. The tree is composed of 10 equiprobabilistic sets each of dimension 4, composed of two pairs [Item 1,Item 2], each sampled from a multivariate normal distribution of dimension 2 with parameters $\mu = [10,16], \Sigma = \begin {pmatrix} 70 &0 \\ 0 &90 \end {pmatrix}$ before rounding and aggregation}{figure.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Results with K-means reduction}{12}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Newsvendor Problem}{12}{subsection.5.1}\protected@file@percent }
+\newlabel{tab:kmeans-nv-results}{{5.1}{13}{Newsvendor Problem}{subsection.5.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces SSE trend graph for $k \in [1,15]$ in case of Newsvendor problem. The figure shows that the appropriate number of points to which to reduce the numerosity of each set is around 3 and 4.}}{14}{figure.3}\protected@file@percent }
+\newlabel{fig:sse-nv}{{3}{14}{SSE trend graph for $k \in [1,15]$ in case of Newsvendor problem. The figure shows that the appropriate number of points to which to reduce the numerosity of each set is around 3 and 4}{figure.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}ATO Problem}{14}{subsection.5.2}\protected@file@percent }
+\newlabel{tab:kmeans-ato-results}{{5.2}{15}{ATO Problem}{subsection.5.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces SSE trend graph for $k \in [1,15]$ in case of ATO problem. The figure shows that the appropriate number of points to which to reduce the numerosity of each set is around 3 and 4.}}{16}{figure.4}\protected@file@percent }
+\newlabel{fig:sse-ato}{{4}{16}{SSE trend graph for $k \in [1,15]$ in case of ATO problem. The figure shows that the appropriate number of points to which to reduce the numerosity of each set is around 3 and 4}{figure.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Results with Wasserstein distance--based reduction}{17}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Newsvendor Problem}{19}{subsection.6.1}\protected@file@percent }
 \newlabel{tab:wass-nv-results}{{6.1}{19}{Newsvendor Problem}{subsection.6.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.2}ATO Problem}{20}{subsection.6.2}\protected@file@percent }
-\newlabel{tab:wass-ato-results}{{6.2}{20}{ATO Problem}{subsection.6.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Efficiency}{21}{section.7}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Total execution times for Newsvendor problem and ATO problem, for each value of $k \in [1,15]$. \textcolor {red}{$\rightarrow $ inserisci figura giusta}}}{21}{figure.5}\protected@file@percent }
-\newlabel{fig:timing}{{5}{21}{Total execution times for Newsvendor problem and ATO problem, for each value of $k \in [1,15]$. \textcolor {red}{$\rightarrow $ inserisci figura giusta}}{figure.5}{}}
-\newlabel{tab:summary-times}{{7}{21}{Efficiency}{figure.5}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Comparison between total execution times for Newsvendor problem and ATO problem with full scenarios, reduced scenarios via Kmeans and reduced scenarios via Wasserstein-based heuristic. \textcolor {red}{$\rightarrow $ inserisci valori giusti}.}}{21}{table.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8}Discussion}{22}{section.8}\protected@file@percent }
-\gdef \@abspage@last{25}
+\newlabel{tab:wass-ato-results}{{6.2}{21}{ATO Problem}{subsection.6.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Efficiency}{22}{section.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Total execution times for Newsvendor problem and ATO problem, for each value of $k \in [1,15]$.}}{22}{figure.5}\protected@file@percent }
+\newlabel{fig:timing}{{5}{22}{Total execution times for Newsvendor problem and ATO problem, for each value of $k \in [1,15]$}{figure.5}{}}
+\newlabel{tab:summary-times}{{7}{23}{Efficiency}{figure.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Comparison between total execution times for Newsvendor problem and ATO problem with full scenarios, reduced scenarios via Kmeans and reduced scenarios via Wasserstein distance-based heuristic.}}{23}{table.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Discussion}{23}{section.8}\protected@file@percent }
+\gdef \@abspage@last{26}
