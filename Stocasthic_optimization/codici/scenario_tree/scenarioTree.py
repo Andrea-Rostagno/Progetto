@@ -145,18 +145,19 @@ class ScenarioTree(nx.DiGraph):
 
     def reduce_scenarios_kmeans_1D(self, X, mu, k, random_state=42):
         """
-        Riduce una distribuzione discreta 1D usando clustering KMeans pesato.
+            Reduces a discrete 1D distribution using weighted KMeans clustering.
 
-        Args:
-            X: array shape (N,) - valori originali degli scenari (es. domanda)
-            mu: array shape (N,) - probabilità associate (somma = 1)
-            k: int - numero di scenari ridotti desiderato
-            random_state: int - per ripetibilità
+            Args:
+                X: array of shape (N,) - original scenario values (e.g., demand)
+                mu: array of shape (N,) - associated probabilities (sum = 1)
+                k: int - desired number of reduced scenarios
+                random_state: int - for reproducibility
 
-        Returns:
-            centers_sorted: lista dei nuovi scenari (ordinati)
-            probs_sorted: lista delle nuove probabilità associate (ordinate)
-        """
+            Returns:
+                centers_sorted: list of the new (sorted) scenario values
+                probs_sorted: list of the new (sorted) associated probabilities
+        """        
+
         X = np.asarray(X).reshape(-1, 1)
         mu = np.asarray(mu)
         
@@ -184,18 +185,19 @@ class ScenarioTree(nx.DiGraph):
     
     def reduce_scenarios_kmeans_multiD(self, X, mu, k, random_state=42):
         """
-        Riduce una distribuzione discreta multi-dimensionale (es. per ATO) usando clustering KMeans pesato.
+            Reduces a discrete multi-dimensional distribution (e.g., for ATO) using weighted KMeans clustering.
 
-        Args:
-            X: array shape (N, d) - scenari originali (es. [d1, d2])
-            mu: array shape (N,) - probabilità associate (somma = 1)
-            k: int - numero di scenari ridotti desiderati
-            random_state: int - per ripetibilità
+            Args:
+                X: array of shape (N, d) - original scenarios (e.g., [d1, d2])
+                mu: array of shape (N,) - associated probabilities (sum = 1)
+                k: int - desired number of reduced scenarios
+                random_state: int - for reproducibility
 
-        Returns:
-            centers_sorted: lista dei nuovi scenari (ordinati per d1, d2)
-            probs_sorted: lista delle nuove probabilità associate
+            Returns:
+                centers_sorted: list of new scenarios (sorted by d1, d2)
+                probs_sorted: list of the new associated probabilities
         """
+
         X = np.asarray(X)
         mu = np.asarray(mu)
 
@@ -229,22 +231,23 @@ class ScenarioTree(nx.DiGraph):
     def reduce_scenarios_wasserstein_1D(self, X, mu, k, p=2,
                                         time_limit=None, verbose=False):
         """
-        Selezione esatta di k scenari che minimizzano la distanza Wasserstein (1-D).
+            Exact selection of k scenarios that minimize the Wasserstein distance (1-D).
 
-        Parameters
-        ----------
-        X          : array-like, shape (m,)   punti di domanda originali
-        mu         : array-like, shape (m,)   probabilità originali (somma = 1)
-        k          : int                      # scenari da mantenere
-        p          : int/float, default 1     norma L^p 
-        time_limit : int/float or None        limite secondi per Gurobi
-        verbose    : bool                     se True stampa log solver
+            Parameters
+            ----------
+            X          : array-like, shape (m,)   original demand points
+            mu         : array-like, shape (m,)   original probabilities (sum = 1)
+            k          : int                      number of scenarios to keep
+            p          : int/float, default 1     L^p norm
+            time_limit : int/float or None        time limit in seconds for Gurobi
+            verbose    : bool                     if True, prints solver log
 
-        Returns
-        -------
-        Y_sorted   : list[int]     valori degli k scenari selezionati
-        nu_sorted  : list[float]   loro probabilità (stessa somma =1)
+            Returns
+            -------
+            Y_sorted   : list[int]     values of the selected k scenarios
+            nu_sorted  : list[float]   their probabilities (sum = 1)
         """
+
         X  = np.asarray(X,  dtype=float).flatten()
         mu = np.asarray(mu, dtype=float)
         m  = len(X)
@@ -312,23 +315,23 @@ class ScenarioTree(nx.DiGraph):
     def reduce_scenarios_wasserstein_multiD(self, X, mu, k, p=2,
                                             time_limit=None, verbose=False):
         """
-        Selezione esatta di k scenari (multi-D) che minimizzano la distanza
-        Wasserstein p-norm, via MILP (Gurobi).
+            Exact selection of k scenarios (multi-D) that minimize the Wasserstein p-norm distance via MILP (Gurobi).
 
-        Parameters
-        ----------
-        X          : array-like, shape (m, d)   vettori domanda originali
-        mu         : array-like, shape (m,)     probabilità originali (somma = 1)
-        k          : int                        # scenari da conservare
-        p          : int/float, default 2       norma L^p  (2 = Euclidea)
-        time_limit : int/float or None          limite in secondi per Gurobi
-        verbose    : bool                       True → log solver
+            Parameters
+            ----------
+            X          : array-like, shape (m, d)   original demand vectors
+            mu         : array-like, shape (m,)     original probabilities (sum = 1)
+            k          : int                        number of scenarios to retain
+            p          : int/float, default 2       L^p norm (2 = Euclidean)
+            time_limit : int/float or None          time limit in seconds for Gurobi
+            verbose    : bool                       True → print solver log
 
-        Returns
-        -------
-        Y_sorted   : list[list[int]]   vettori scenario selezionati (ordinati)
-        nu_sorted  : list[float]       rispettive probabilità (somma = 1)
+            Returns
+            -------
+            Y_sorted   : list[list[int]]   selected scenario vectors (sorted)
+            nu_sorted  : list[float]       corresponding probabilities (sum = 1)
         """
+
         X  = np.asarray(X,  dtype=float)
         mu = np.asarray(mu, dtype=float).flatten()
         m, d = X.shape
@@ -395,16 +398,17 @@ class ScenarioTree(nx.DiGraph):
 
     def compute_cost_matrix_multidimensional(self, points_mu, points_nu, p=2):
         """
-        Calcola la matrice dei costi per distribuzioni multidimensionali.
+            Computes the cost matrix for multidimensional distributions.
 
-        Args:
-            points_mu: array shape (m, d)
-            points_nu: array shape (n, d)
-            p: norma da usare (default = 2 per distanza euclidea)
+            Args:
+                points_mu: array of shape (m, d)
+                points_nu: array of shape (n, d)
+                p: norm to use (default = 2 for Euclidean distance)
 
-        Returns:
-            cost_matrix: array shape (m, n)
+            Returns:
+                cost_matrix: array of shape (m, n)
         """
+
         m = len(points_mu)
         n = len(points_nu)
 
@@ -510,16 +514,17 @@ class ScenarioTree(nx.DiGraph):
 
     def aggregate_discrete_demands(self, demands, probs, round_probs=2):
         """
-        Aggrega e ordina scenari discreti sommando le probabilità associate agli stessi valori di domanda.
+            Aggregates and sorts discrete scenarios by summing the probabilities associated with identical demand values.
 
-        Args:
-            demands: lista di valori di domanda interi
-            probs: lista di probabilità corrispondenti
-            round_probs: numero di cifre decimali a cui arrotondare le probabilità finali
+            Args:
+                demands: list of integer demand values
+                probs: list of corresponding probabilities
+                round_probs: number of decimal digits to round the final probabilities
 
-        Returns:
-            (demands_agg, probs_agg): liste parallele ordinate crescentemente
+            Returns:
+                (demands_agg, probs_agg): parallel lists, sorted in increasing order
         """
+
         demand_prob = defaultdict(float)
         for d, p in zip(demands, probs):
             demand_prob[d] += p
@@ -536,17 +541,17 @@ class ScenarioTree(nx.DiGraph):
 
     def aggregate_vectorial_demands(self, demand_vectors, probs, round_probs=3):
         """
-        Aggrega scenari vettoriali sommando le probabilità associate agli stessi vettori di domanda,
-        dopo aver arrotondato ogni componente alla decina più vicina.
+            Aggregates vectorial scenarios by summing the probabilities associated with identical demand vectors,
 
-        Args:
-            demand_vectors: lista di liste o tuple (es: [[100,400], [80,250], ...])
-            probs: lista delle probabilità associate
-            round_probs: cifre decimali a cui arrotondare le probabilità finali
+            Args:
+                demand_vectors: list of lists or tuples (e.g., [[100, 400], [80, 250], ...])
+                probs: list of associated probabilities
+                round_probs: number of decimal digits to round the final probabilities
 
-        Returns:
-            (demands_agg, probs_agg): liste ordinate con vettori distinti e probabilità sommate
+            Returns:
+                (demands_agg, probs_agg): sorted lists with unique demand vectors and summed probabilities
         """
+
         demand_prob = defaultdict(float)
         for d_vec, p in zip(demand_vectors, probs): 
             rounded_vec = tuple(d_vec)
