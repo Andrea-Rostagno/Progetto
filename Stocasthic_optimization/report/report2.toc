@@ -18,3 +18,15 @@
 \contentsline {subsection}{\numberline {6.2}ATO Problem}{23}{subsection.6.2}%
 \contentsline {section}{\numberline {7}Efficiency}{26}{section.7}%
 \contentsline {section}{\numberline {8}Discussion}{28}{section.8}%
+\contentsline {section}{\numberline {A}Appendix: Python Codes}{29}{appendix.A}%
+\contentsline {section}{Appendix: Python Codes}{29}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}scenarioTree.py}{29}{subsection.A.1}%
+\contentsline {subsection}{scenarioTree.py}{29}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}newvendor\_model.py}{47}{subsection.A.2}%
+\contentsline {subsection}{newvendor\_model.py}{47}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}ato\_model.py}{48}{subsection.A.3}%
+\contentsline {subsection}{ato\_model.py}{48}{subsection.A.3}%
+\contentsline {subsection}{\numberline {A.4}main\_newsvendor.py}{50}{subsection.A.4}%
+\contentsline {subsection}{main\_newsvendor.py}{50}{subsection.A.4}%
+\contentsline {subsection}{\numberline {A.5}main\_ato.py}{60}{subsection.A.5}%
+\contentsline {subsection}{main\_ato.py}{60}{subsection.A.5}%
