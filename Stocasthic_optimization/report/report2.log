@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.6.17)  17 JUN 2025 14:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.6.17)  17 JUN 2025 22:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -998,19 +998,24 @@ s been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.376 	\newpage
                 <../immagini/scenariATO.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 379--382
+Underfull \hbox (badness 10000) in paragraph at lines 379--380
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 383--384
+Underfull \hbox (badness 10000) in paragraph at lines 381--384
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 385--386
 
  []
 
 
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 425--426
+Underfull \hbox (badness 10000) in paragraph at lines 427--428
 
  []
 
@@ -1021,18 +1026,18 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.429 	
+l.431 	
        ]
 <../immagini/rendimentoK_nv.png, id=270, 462.528pt x 346.896pt>
 File: ../immagini/rendimentoK_nv.png Graphic file (type png)
 <use ../immagini/rendimentoK_nv.png>
-Package pdftex.def Info: ../immagini/rendimentoK_nv.png  used on input line 432
+Package pdftex.def Info: ../immagini/rendimentoK_nv.png  used on input line 434
 .
 (pdftex.def)             Requested size: 272.99881pt x 204.75684pt.
 <../immagini/sseNV.png, id=271, 462.528pt x 346.896pt>
 File: ../immagini/sseNV.png Graphic file (type png)
 <use ../immagini/sseNV.png>
-Package pdftex.def Info: ../immagini/sseNV.png  used on input line 443.
+Package pdftex.def Info: ../immagini/sseNV.png  used on input line 445.
 (pdftex.def)             Requested size: 312.00119pt x 234.01236pt.
 
 
@@ -1041,9 +1046,9 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.447 	
+l.449 	
         <../immagini/rendimentoK_nv.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 489--490
+Underfull \hbox (badness 10000) in paragraph at lines 491--492
 
  []
 
@@ -1054,13 +1059,13 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.490 	
+l.492 	
         <../immagini/sseNV.png>]
 <../immagini/rendimentoK_ato.png, id=286, 462.528pt x 346.896pt>
 File: ../immagini/rendimentoK_ato.png Graphic file (type png)
 <use ../immagini/rendimentoK_ato.png>
 Package pdftex.def Info: ../immagini/rendimentoK_ato.png  used on input line 49
-6.
+8.
 (pdftex.def)             Requested size: 272.99881pt x 204.75684pt.
 
 
@@ -1069,12 +1074,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.500 	
+l.502 	
        ]
 <../immagini/sseATO.png, id=294, 462.528pt x 346.896pt>
 File: ../immagini/sseATO.png Graphic file (type png)
 <use ../immagini/sseATO.png>
-Package pdftex.def Info: ../immagini/sseATO.png  used on input line 507.
+Package pdftex.def Info: ../immagini/sseATO.png  used on input line 509.
 (pdftex.def)             Requested size: 312.00119pt x 234.01236pt.
 
 
@@ -1083,7 +1088,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.511 	
+l.513 	
         <../immagini/rendimentoK_ato.png>]
 
 [18
@@ -1091,26 +1096,26 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.512 	\newpage
+l.514 	\newpage
                 <../immagini/sseATO.png>]
-Overfull \hbox (6.84854pt too wide) in paragraph at lines 513--513
+Overfull \hbox (6.84854pt too wide) in paragraph at lines 515--515
 []\T1/lmr/bx/n/17.28 Results with Wasser-stein distance--based re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 515--516
+Underfull \hbox (badness 10000) in paragraph at lines 517--518
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 520--522
+Underfull \hbox (badness 10000) in paragraph at lines 522--524
 
  []
 
 
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 545--547
+Underfull \hbox (badness 10000) in paragraph at lines 547--549
 
  []
 
@@ -1119,11 +1124,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 545--547
 [20]
 
 [21]
+Underfull \hbox (badness 10000) in paragraph at lines 590--591
+
+ []
+
 <../immagini/rendimentoWass_nv.png, id=322, 462.528pt x 346.896pt>
 File: ../immagini/rendimentoWass_nv.png Graphic file (type png)
 <use ../immagini/rendimentoWass_nv.png>
 Package pdftex.def Info: ../immagini/rendimentoWass_nv.png  used on input line 
-595.
+597.
 (pdftex.def)             Requested size: 272.99881pt x 204.75684pt.
 
 
@@ -1132,7 +1141,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.599 	
+l.601 	
        ]
 
 [23
@@ -1140,10 +1149,10 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.637 	T
+l.639 	T
         his outcome highlights the robustness and accuracy of the Wasserstei...
  <../immagini/rendimentoWass_nv.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 637--638
+Underfull \hbox (badness 10000) in paragraph at lines 639--640
 
  []
 
@@ -1151,7 +1160,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 637--638
 File: ../immagini/rendimentoWass_ato.png Graphic file (type png)
 <use ../immagini/rendimentoWass_ato.png>
 Package pdftex.def Info: ../immagini/rendimentoWass_ato.png  used on input line
- 644.
+ 646.
 (pdftex.def)             Requested size: 272.99881pt x 204.75684pt.
 
 
@@ -1160,7 +1169,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.8}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.648 	
+l.650 	
        ]
 
 [25
@@ -1168,16 +1177,16 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.649 	\newpage
+l.651 	\newpage
                	 <../immagini/rendimentoWass_ato.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 652--653
+Underfull \hbox (badness 10000) in paragraph at lines 654--655
 
  []
 
 <../immagini/tempi_ato.png, id=349, 722.7pt x 361.35pt>
 File: ../immagini/tempi_ato.png Graphic file (type png)
 <use ../immagini/tempi_ato.png>
-Package pdftex.def Info: ../immagini/tempi_ato.png  used on input line 658.
+Package pdftex.def Info: ../immagini/tempi_ato.png  used on input line 660.
 (pdftex.def)             Requested size: 390.0pt x 194.99928pt.
 
 
@@ -1186,15 +1195,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.666 	
+l.668 	
         <../immagini/tempi_ato.png>]
 <../immagini/tempi_nv.png, id=356, 722.7pt x 361.35pt>
 File: ../immagini/tempi_nv.png Graphic file (type png)
 <use ../immagini/tempi_nv.png>
-Package pdftex.def Info: ../immagini/tempi_nv.png  used on input line 669.
+Package pdftex.def Info: ../immagini/tempi_nv.png  used on input line 671.
 (pdftex.def)             Requested size: 390.0pt x 194.99928pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 674--676
+Underfull \hbox (badness 10000) in paragraph at lines 676--678
 
  []
 
@@ -1205,26 +1214,26 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.680 	\newpage
+l.682 	\newpage
                 <../immagini/tempi_nv.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 684--685
+Underfull \hbox (badness 10000) in paragraph at lines 686--687
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 688--689
+Underfull \hbox (badness 10000) in paragraph at lines 690--691
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 691--692
+Underfull \hbox (badness 10000) in paragraph at lines 693--694
 
  []
 
 
 
 [28]
-Overfull \hbox (2.64397pt too wide) in paragraph at lines 693--694
+Overfull \hbox (2.64397pt too wide) in paragraph at lines 695--696
 \T1/lmr/m/n/12 avail-able com-pu-ta-tional re-sources and the prob-lem's di-men
 -sion-al-ity: K-means
  []
@@ -1233,11 +1242,11 @@ Overfull \hbox (2.64397pt too wide) in paragraph at lines 693--694
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 782.
+nput line 784.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/bx/it' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 784.
+(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 786.
 
 
 
@@ -1245,7 +1254,7 @@ LaTeX Font Warning: Font shape `T1/lmtt/bx/it' in size <12> not available
 
 [30]
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-846.
+848.
  (/usr/share/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1329,7 +1338,7 @@ File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 [69]
 
 [70]
-runsystem(latexminted cleantemp  --timestamp 20250617143026 D228FBBFE4A7BA408E9
+runsystem(latexminted cleantemp  --timestamp 20250617220852 D228FBBFE4A7BA408E9
 0A04A643F9F92)...executed safely (allowed).
 
  (./report2.aux)
@@ -1343,7 +1352,7 @@ Package rerunfilecheck Info: File `report2.out' has not changed.
 Here is how much of TeX's memory you used:
  28569 strings out of 475171
  544014 string characters out of 5767095
- 1485114 words of memory out of 5000000
+ 1485100 words of memory out of 5000000
  49618 multiletter control sequences out of 15000+600000
  633483 words of font info for 98 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -1361,7 +1370,7 @@ lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtko10.pfb></usr/share
 /texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1
 /public/lm/lmtt12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtto10.pfb>
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on report2.pdf (73 pages, 980028 bytes).
+Output written on report2.pdf (73 pages, 979844 bytes).
 PDF statistics:
  2342 PDF objects out of 2487 (max. 8388607)
  2184 compressed objects within 22 object streams
