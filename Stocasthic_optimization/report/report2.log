@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.6.17)  17 JUN 2025 11:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.6.17)  17 JUN 2025 11:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -835,6 +835,8 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
 
 
 [1]
+
+[2]
 Underfull \hbox (badness 10000) in paragraph at lines 58--59
 
  []
@@ -918,7 +920,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 224--225
 []\T1/lmr/bx/n/10 Probability
  []
 
-<../immagini/scenariNV.png, id=197, 987.2082pt x 489.9906pt>
+<../immagini/scenariNV.png, id=217, 987.2082pt x 489.9906pt>
 File: ../immagini/scenariNV.png Graphic file (type png)
 <use ../immagini/scenariNV.png>
 Package pdftex.def Info: ../immagini/scenariNV.png  used on input line 248.
@@ -977,7 +979,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
                                                   \__shipout_drop_firstpage_...
 l.344 	\newpage
                ]
-<../immagini/scenariATO.png, id=230, 987.2082pt x 489.9906pt>
+<../immagini/scenariATO.png, id=251, 987.2082pt x 489.9906pt>
 File: ../immagini/scenariATO.png Graphic file (type png)
 <use ../immagini/scenariATO.png>
 Package pdftex.def Info: ../immagini/scenariATO.png  used on input line 349.
@@ -1021,13 +1023,13 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
                                                   \__shipout_drop_firstpage_...
 l.429 	
        ]
-<../immagini/rendimentoK_nv.png, id=250, 462.528pt x 346.896pt>
+<../immagini/rendimentoK_nv.png, id=270, 462.528pt x 346.896pt>
 File: ../immagini/rendimentoK_nv.png Graphic file (type png)
 <use ../immagini/rendimentoK_nv.png>
 Package pdftex.def Info: ../immagini/rendimentoK_nv.png  used on input line 432
 .
 (pdftex.def)             Requested size: 272.99881pt x 204.75684pt.
-<../immagini/sseNV.png, id=251, 462.528pt x 346.896pt>
+<../immagini/sseNV.png, id=271, 462.528pt x 346.896pt>
 File: ../immagini/sseNV.png Graphic file (type png)
 <use ../immagini/sseNV.png>
 Package pdftex.def Info: ../immagini/sseNV.png  used on input line 443.
@@ -1054,7 +1056,7 @@ s been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.490 	
         <../immagini/sseNV.png>]
-<../immagini/rendimentoK_ato.png, id=266, 462.528pt x 346.896pt>
+<../immagini/rendimentoK_ato.png, id=286, 462.528pt x 346.896pt>
 File: ../immagini/rendimentoK_ato.png Graphic file (type png)
 <use ../immagini/rendimentoK_ato.png>
 Package pdftex.def Info: ../immagini/rendimentoK_ato.png  used on input line 49
@@ -1069,7 +1071,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has
                                                   \__shipout_drop_firstpage_...
 l.500 	
        ]
-<../immagini/sseATO.png, id=273, 462.528pt x 346.896pt>
+<../immagini/sseATO.png, id=294, 462.528pt x 346.896pt>
 File: ../immagini/sseATO.png Graphic file (type png)
 <use ../immagini/sseATO.png>
 Package pdftex.def Info: ../immagini/sseATO.png  used on input line 507.
@@ -1117,7 +1119,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 545--547
 [20]
 
 [21]
-<../immagini/rendimentoWass_nv.png, id=301, 462.528pt x 346.896pt>
+<../immagini/rendimentoWass_nv.png, id=322, 462.528pt x 346.896pt>
 File: ../immagini/rendimentoWass_nv.png Graphic file (type png)
 <use ../immagini/rendimentoWass_nv.png>
 Package pdftex.def Info: ../immagini/rendimentoWass_nv.png  used on input line 
@@ -1145,7 +1147,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 637--638
 
  []
 
-<../immagini/rendimentoWass_ato.png, id=317, 462.528pt x 346.896pt>
+<../immagini/rendimentoWass_ato.png, id=337, 462.528pt x 346.896pt>
 File: ../immagini/rendimentoWass_ato.png Graphic file (type png)
 <use ../immagini/rendimentoWass_ato.png>
 Package pdftex.def Info: ../immagini/rendimentoWass_ato.png  used on input line
@@ -1172,7 +1174,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 652--653
 
  []
 
-<../immagini/tempi_ato.png, id=329, 722.7pt x 361.35pt>
+<../immagini/tempi_ato.png, id=349, 722.7pt x 361.35pt>
 File: ../immagini/tempi_ato.png Graphic file (type png)
 <use ../immagini/tempi_ato.png>
 Package pdftex.def Info: ../immagini/tempi_ato.png  used on input line 658.
@@ -1186,7 +1188,7 @@ s been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.666 	
         <../immagini/tempi_ato.png>]
-<../immagini/tempi_nv.png, id=336, 722.7pt x 361.35pt>
+<../immagini/tempi_nv.png, id=356, 722.7pt x 361.35pt>
 File: ../immagini/tempi_nv.png Graphic file (type png)
 <use ../immagini/tempi_nv.png>
 Package pdftex.def Info: ../immagini/tempi_nv.png  used on input line 669.
@@ -1318,7 +1320,7 @@ File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 [70]
 
 [71]
-runsystem(latexminted cleantemp  --timestamp 20250617114532 D228FBBFE4A7BA408E9
+runsystem(latexminted cleantemp  --timestamp 20250617115548 D228FBBFE4A7BA408E9
 0A04A643F9F92)...executed safely (allowed).
 
  (./report2.aux)
@@ -1326,57 +1328,34 @@ runsystem(latexminted cleantemp  --timestamp 20250617114532 D228FBBFE4A7BA408E9
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-Package rerunfilecheck Warning: File `report2.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `report2.out':
-(rerunfilecheck)             Before: B24A844FDCCF97C019B79F879ACCED4D;4289
-(rerunfilecheck)             After:  B26E14B7E9CE1DE68B4E25168F91022A;4848.
+Package rerunfilecheck Info: File `report2.out' has not changed.
+(rerunfilecheck)             Checksum: B26E14B7E9CE1DE68B4E25168F91022A;4848.
  ) 
 Here is how much of TeX's memory you used:
- 28566 strings out of 475171
- 543929 string characters out of 5767095
- 1455969 words of memory out of 5000000
+ 28563 strings out of 475171
+ 543912 string characters out of 5767095
+ 1455970 words of memory out of 5000000
  49620 multiletter control sequences out of 15000+600000
  633483 words of font info for 98 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  84i,14n,87p,2030b,2227s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{section*.5} has been referenced but does not exist,
- replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section*.4} has been referenced but does not exist,
- replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section*.3} has been referenced but does not exist,
- replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section*.2} has been referenced but does not exist,
- replaced by a fixed one
-
-</usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/
-fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/l
-mex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/t
-exmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr
-/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/
-type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb>
-</usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/
-fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lm
-tk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtko10.pfb></usr/share/t
-exmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/lm/lmtt12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtto10.pfb></
-usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on report2.pdf (73 pages, 982726 bytes).
+</usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dis
+t/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm
+/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share
+/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/type1
+/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></u
+sr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/font
+s/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pf
+b></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dis
+t/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/
+lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtko10.pfb></usr/share
+/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1
+/public/lm/lmtt12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtto10.pfb>
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on report2.pdf (74 pages, 983290 bytes).
 PDF statistics:
- 2320 PDF objects out of 2487 (max. 8388607)
- 2162 compressed objects within 22 object streams
- 1492 named destinations out of 1728 (max. 500000)
- 287 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2336 PDF objects out of 2487 (max. 8388607)
+ 2177 compressed objects within 22 object streams
+ 1489 named destinations out of 1728 (max. 500000)
+ 319 words of extra memory for PDF output out of 10000 (max. 10000000)
 
