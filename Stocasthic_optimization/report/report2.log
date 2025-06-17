@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.6.17)  17 JUN 2025 11:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.6.17)  17 JUN 2025 14:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1207,26 +1207,37 @@ as been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.680 	\newpage
                 <../immagini/tempi_nv.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 686--687
+Underfull \hbox (badness 10000) in paragraph at lines 684--685
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 689--690
+Underfull \hbox (badness 10000) in paragraph at lines 688--689
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 691--692
 
  []
 
 
 
-[28] (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+[28]
+Overfull \hbox (2.64397pt too wide) in paragraph at lines 693--694
+\T1/lmr/m/n/12 avail-able com-pu-ta-tional re-sources and the prob-lem's di-men
+-sion-al-ity: K-means
+ []
+
+(/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 780.
+nput line 782.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/bx/it' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 782.
+(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 784.
 
 
 
@@ -1234,7 +1245,7 @@ LaTeX Font Warning: Font shape `T1/lmtt/bx/it' in size <12> not available
 
 [30]
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-844.
+846.
  (/usr/share/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1318,9 +1329,7 @@ File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 [69]
 
 [70]
-
-[71]
-runsystem(latexminted cleantemp  --timestamp 20250617115548 D228FBBFE4A7BA408E9
+runsystem(latexminted cleantemp  --timestamp 20250617143026 D228FBBFE4A7BA408E9
 0A04A643F9F92)...executed safely (allowed).
 
  (./report2.aux)
@@ -1332,13 +1341,13 @@ Package rerunfilecheck Info: File `report2.out' has not changed.
 (rerunfilecheck)             Checksum: B26E14B7E9CE1DE68B4E25168F91022A;4848.
  ) 
 Here is how much of TeX's memory you used:
- 28563 strings out of 475171
- 543912 string characters out of 5767095
- 1455970 words of memory out of 5000000
- 49620 multiletter control sequences out of 15000+600000
+ 28569 strings out of 475171
+ 544014 string characters out of 5767095
+ 1485114 words of memory out of 5000000
+ 49618 multiletter control sequences out of 15000+600000
  633483 words of font info for 98 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 84i,14n,87p,2030b,2227s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,14n,87p,2020b,2221s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dis
 t/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm
 /lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share
@@ -1352,10 +1361,10 @@ lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtko10.pfb></usr/share
 /texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1
 /public/lm/lmtt12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtto10.pfb>
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on report2.pdf (74 pages, 983290 bytes).
+Output written on report2.pdf (73 pages, 980028 bytes).
 PDF statistics:
- 2336 PDF objects out of 2487 (max. 8388607)
- 2177 compressed objects within 22 object streams
- 1489 named destinations out of 1728 (max. 500000)
+ 2342 PDF objects out of 2487 (max. 8388607)
+ 2184 compressed objects within 22 object streams
+ 1497 named destinations out of 1728 (max. 500000)
  319 words of extra memory for PDF output out of 10000 (max. 10000000)
 
